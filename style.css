@@ -1,0 +1,307 @@
+/* 1. RESET AK BAZ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #F9F4E8;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* 2. NAVBAR (Gwo Ekran) */
+.navbar {
+    background-color: white;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #000;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    /* Nou chanje sa pou nou ka kontwole espas yo pi byen */
+    justify-content: flex-start; 
+    height: 80px;
+    padding: 0 40px;
+}
+
+/* Logo */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+}
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    /* Yon ti animasyon lè paj la ouvri (li soti anba moute) */
+    animation: slideUpLogo 0.8s ease-out;
+}
+
+@keyframes slideUpLogo {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-img {
+    height: 55px; /* Yon ti kras pi gwo pou n wè detay yo */
+    width: auto;
+    object-fit: contain;
+    
+    /* 1. Efè "Glow" (Limyè dous) */
+    filter: drop-shadow(0 0 5px rgba(46, 125, 50, 0.3));
+    
+    /* 2. Rann imaj la pi "sharp" (pwòp) */
+    image-rendering: -webkit-optimize-contrast;
+    
+    /* 3. Preparasyon pou animasyon */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(-5px)
+}
+
+/* Efè lè sourit la pase sou li (Hover) */
+.logo-img:hover {
+    /* Limyè a vin pi klere */
+    filter: drop-shadow(0 0 15px rgba(46, 125, 50, 0.6));
+   
+}
+
+/* Meni Mitan (Dropdown) */
+.nav-links {
+    display: flex;
+    height: 30%;
+    /* Meni an rete bò kote logo a kounye a */
+    margin-left: 40px;
+}
+
+.nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    /* Chanje valè sa yo pou kontwole fòm lèt yo */
+    font-weight: 700;        /* 500 oswa 600 ap fè l parèt pi pwofesyonèl pase 700 */
+    font-size: 12px;
+    letter-spacing: 0.5px;   /* Ti espas ant lèt yo bay yon "look" modèn */
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Asire w font sa a la */
+}
+
+/* Trè vèt anba a (Hover) */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #2E7D32;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after { width: 85%; }
+
+.nav-item:hover .dropdown-content { display: block; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: white;
+    min-width: 280px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+}
+
+.dropdown-content a {
+    color: #666;
+    padding: 15px 25px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f9f9f9;
+    color: #2E7D32;
+    padding-left: 30px;
+}
+
+/* Actions (Sign in / Give) - Pouse yo nèt adwat */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Sa a pouse yo nèt adwat */
+}
+
+.sign-in {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0 10px;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #ccc;
+    margin: 0 5px;
+}
+
+.btn-give {
+    background-color: #2E7D32;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 3. MOBIL (Ti Ekran) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 18px;
+    height: 1px;
+    background-color: #333;
+    transform: translateY(2px)
+}
+
+/* --- CHIRIJI MOBIL LAN --- */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    /* 1. Kache sèlman lyen mitan yo */
+    .nav-links {
+        display: none;
+    }
+
+    /* 2. Fòse Hamburger ak Logo rete agoch */
+    .hamburger {
+        display: flex;
+    }
+
+    /* 3. Fòse "SE CONNECTER" ak "DONNER" parèt sou mobil bò dwat */
+    .nav-actions {
+        display: flex !important; /* !important pou kraze ansyen kòd la */
+        margin-left: auto;
+    }
+
+    /* Ranje gwosè pou yo pa debòde sou ti telefòn */
+    .sign-in {
+        font-size: 11px;
+        padding: 0 5px;
+    }
+
+    .btn-give {
+        padding: 12px 12px;
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    .vertical-divider {
+        height: 22px;
+    }
+
+    
+}
+
+/* Mobile Overlay (Meni ki ouvri a) */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 2000;
+    transition: 0.4s ease;
+    overflow-y: auto;
+}
+
+.mobile-overlay.active { left: 0; }
+
+.overlay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.close-btn { font-size: 35px; cursor: pointer; }
+
+/* Accordion nan mobil */
+.accordion-header {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-body {
+    display: none;
+    background-color: #FDF9EE;
+}
+
+.mobile-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-txt strong { font-size: 16px; }
+.card-txt p { font-size: 13px; color: #666; }
+.card-arrow { color: #2E7D32; }
+
+/* Hero Section */
+.hero {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    max-width: 600px;
+    margin: 20px auto;
+}
