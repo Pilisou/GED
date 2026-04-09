@@ -238,8 +238,8 @@ body {
 
     /* Ranje gwosè pou yo pa debòde sou ti telefòn */
     .sign-in {
-        font-size: 9px;
-        padding: 0 5px;
+        font-size: 10px;
+        padding: 0 9px;
     }
 
     .btn-give {
@@ -253,17 +253,17 @@ body {
     }
 
     .left-section {
-        gap: 5px; /* Sa a ap redui espas ant span yo ak logo a */
+        gap: 4px; /* Sa a ap redui espas ant span yo ak logo a */
     }
 
     .logo {
-        margin-left: -5px; /* Yon maj negatif pou rale logo a bò gòch plis toujou */
+        margin-left: px; /* Yon maj negatif pou rale logo a bò gòch plis toujou */
     }
 
     /* 2. Kontwole gwosè logo a espesyalman pou mobil */
     .logo-img {
         /* Si w vle l pi gwo, mete 45px oswa 50px. Si l twò gwo, mete 35px */
-        height: 42px; 
+        height: 45px; 
         
         /* Ou ka ajiste wotè l tou pou l santre ak span yo */
         transform: translateY(-5px); 
