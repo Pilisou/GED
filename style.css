@@ -270,7 +270,7 @@ body {
     }
 }
 
-/* Mobile Overlay (Meni ki ouvri a) */
+/* --- NOUVO CHIRIJI MOBILE OVERLAY --- */
 .mobile-overlay {
     position: fixed;
     top: 0;
@@ -289,47 +289,80 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 0 20px;
+    height: 80px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.close-btn { font-size: 35px; cursor: pointer; }
-
-/* Accordion nan mobil */
-.accordion-header {
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
+.header-left-mobile {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #eee;
+    align-items: center;
+    gap: 10px; /* Ti gap ant Kwa a ak Lanp lan */
 }
 
-.accordion-body {
-    display: none;
-    background-color: #FDF9EE;
+.menu-lamp-icon {
+    height: 32px;
+    width: auto;
 }
 
-.mobile-card {
+.close-btn {
+    font-size: 32px;
+    color: #333;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+/* Accordion Tit yo */
+.accordion-header {
+    padding: 28px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
 }
 
-.card-txt strong { font-size: 16px; }
-.card-txt p { font-size: 13px; color: #666; }
-.card-arrow { color: #2E7D32; }
-
-/* Hero Section */
-.hero {
-    padding: 80px 20px;
-    text-align: center;
+/* Ti sèk ble pal la */
+.circle-icon.blue-pale {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ADD8E6; /* Ble pal */
+    border-radius: 50%;
+    font-size: 18px;
+    color: #4682B4;
 }
 
-.hero h1 {
-    font-size: 36px;
-    max-width: 600px;
-    margin: 20px auto;
+/* Flèch k ap bouje a */
+.animated-arrow {
+    display: inline-block;
+    animation: nudge 1.5s infinite ease-in-out;
+}
+
+@keyframes nudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); color: #2E7D32; }
+}
+
+/* Footer */
+.overlay-footer {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.overlay-footer a {
+    text-decoration: none;
+    color: #777;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
