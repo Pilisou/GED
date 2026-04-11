@@ -183,19 +183,37 @@ body {
 }
 
 
-
-
-
 .btn-give {
-    width: 65px; /* Ou ka ajiste lajè a */
-    height: 38px;
+    width: 65px; 
+    height: 35px;
     background-color: #2E7D32;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Pou kòb la pa parèt deyò kare a */
+    overflow: hidden; 
     position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* LIMYÈ K AP PASE A (SHINE) */
+.btn-give::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.7), transparent);
+    transform: skewX(-25deg);
+    animation: shineEffect 5s infinite;
+    z-index: 4;
+}
+
+@keyframes shineEffect {
+    0% { left: -150%; }
+    15% { left: 150%; } /* Vitès kout limyè a lè l ap pase */
+    100% { left: 150%; } /* Li rale yon gwo poz anvan l rekòmanse */
 }
 
 .animation-container {
@@ -204,56 +222,61 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
+/* CHIRIJI: TI MOSO LÒ KI SOTI ANBA MOUTE */
+.particle {
+    position: absolute;
+    bottom: 0; /* Yo tout kòmanse anba nèt */
+    width: 5px;
+    height: 5px;
+    background: linear-gradient(135deg, #FFD700, #FFA500); /* Koulè Lò tout bon */
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+    box-shadow: 0 0 5px #FFD700;
+}
+
+/* Animasyon "Gou" a: Soti anba, moute dousman, epi gaye */
+@keyframes goldUp {
+    0%, 10% { transform: translateY(20px) scale(0); opacity: 0; }
+    15% { opacity: 1; transform: translateY(0) scale(1.2); } /* Lè kòb la touche men an */
+    30% { transform: translateY(-25px) translateX(var(--x)) scale(1); opacity: 1; }
+    45% { transform: translateY(-35px) translateX(var(--x2)) scale(0); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Pozisyon pou chak grenn lò ka gen direksyon pa yo */
+.p1 { --x: -15px; --x2: -25px; animation: goldUp 3s infinite; }
+.p2 { --x: 15px; --x2: 25px; animation: goldUp 3s infinite; animation-delay: 0.1s; }
+.p3 { --x: -5px; --x2: -10px; animation: goldUp 3s infinite; animation-delay: 0.2s; }
+.p4 { --x: 5px; --x2: 10px; animation: goldUp 3s infinite; animation-delay: 0.15s; }
+
+/* ANIMASYON KÒB LA */
 .money-animation {
-    height: 25px; /* Gwosè icon nan */
+    height: 25px; 
     width: auto;
-    filter: brightness(0) invert(1); /* Rann li BLAN nèt */
-    
-    /* Nou makonnen animasyon an la */
+    filter: brightness(0) invert(1); 
     animation: dropAndBounce 3s infinite ease-in-out;
+    z-index: 3;
+    position: relative;
 }
 
 @keyframes dropAndBounce {
-    0% {
-        transform: translateY(-50px); /* Li kòmanse anlè, deyò kare a */
-        opacity: 0;
-    }
-    10% {
-        transform: translateY(0); /* Li tonbe nan mitan */
-        opacity: 1;
-    }
-    15% {
-        transform: translateY(-10px); /* 1ye Mate */
-    }
-    20% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-5px); /* 2yèm Mate */
-    }
-    30% {
-        transform: translateY(0);
-    }
-    35% {
-        transform: translateY(-2px); /* 3yèm Mate (ti kras) */
-    }
-    40% {
-        transform: translateY(0);
-    }
-    80% {
-        opacity: 1; /* Li rete fix pou moun wè l */
-        transform: scale(1);
-    }
-    90% {
-        opacity: 0; /* Li disparèt dousman */
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 0;
-    }
+    0% { transform: translateY(-40px); opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    15% { transform: translateY(-8px); }
+    20% { transform: translateY(0); }
+    25% { transform: translateY(-4px); }
+    30% { transform: translateY(0); }
+    80% { opacity: 1; transform: scale(1); }
+    90% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 0; }
 }
+
+
+
 
 
 /* 3. MOBIL (Ti Ekran) */
