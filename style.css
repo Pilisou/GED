@@ -170,9 +170,10 @@ body {
 
 .vertical-divider {
     width: 1px;
-    height: 25px;
-    background-color: #ccc;
+    height: 30px;
     margin: 0 5px;
+    background-color: #2E7D32; /* Nou mete l vèt pou l match */
+        opacity: 0.7;
 }
 
 .btn-give {
@@ -188,11 +189,18 @@ body {
 }
 
 .btn-icon-img {
-    height: 20px; /* Li dwe pi piti pou l antre nan bouton an */
+    height: 20px;
     width: auto;
-    filter: brightness(0) invert(1); /* Sa ap rann logo a BLAN pou l parèt byen sou vèt la */
-    margin-left: 5px;
-    transform: translateY(-3px)
+    /* Efè flanm dife: Yon zoranj/jòn ki klere */
+    filter: brightness(0) saturate(100%) invert(85%) sepia(22%) saturate(5000%) hue-rotate(360deg) brightness(105%) contrast(105%);
+    margin-left: px;
+    transform: translateY(-3px);
+    transition: filter 0.3s ease;
+}
+
+/* Lè moun nan pase sourit sou bouton an, flanm nan ka vin pi cho */
+.btn-give:hover .btn-icon-img {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(50%) saturate(6000%) hue-rotate(10deg) brightness(110%) contrast(110%);
 }
 
 
@@ -203,16 +211,27 @@ body {
     flex-direction: column;
     gap: 7px;
     cursor: pointer;
+    padding-left: 4px;
 }
 
 .hamburger span {
-    width: 18px;
+    width: 15px;
     height: 1px;
     background-color: #333;
     transform: translateY(-1px)
 }
 
+.hamburger:hover span:nth-child(2) {
+    width: 25px; /* Liy mitan an ap vin pi laj */
+    transition: 0.3s;
+}
+
+.hamburger span {
+    transition: all 0.3s ease;
+}
+
 /* --- CHIRIJI MOBIL LAN --- */
+
 @media (max-width: 1024px) {
     .nav-container {
      padding-left: 8px;  
@@ -238,22 +257,37 @@ body {
 
     /* Ranje gwosè pou yo pa debòde sou ti telefòn */
     .sign-in {
-        font-size: 11px;
-        padding: 0 9px;
+        font-size: 9px;
+        padding: 0 2px;
     }
 
     .btn-give {
-        padding: 12px 12px;
+        padding: 5px 3px;
         font-size: 11px;
-        gap: 4px;
+        animation: pulseButton 2s infinite ease-in-out;
+        box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+    }
+
+    @keyframes pulseButton {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+    }
+
+    /* Rann separasyon vètikal la pi bèl */
+    .vertical-divider {
+        background-color: #2E7D32; /* Nou mete l vèt pou l match */
+        opacity: 0.5;
     }
 
     .vertical-divider {
-        height: 22px;
+        height: 30px;
+        background-color: #2E7D32; /* Nou mete l vèt pou l match */
+        opacity: 0.7;
     }
 
     .left-section {
-        gap: 4px; /* Sa a ap redui espas ant span yo ak logo a */
+        gap: 10px; /* Sa a ap redui espas ant span yo ak logo a */
     }
 
     .logo {
@@ -263,11 +297,21 @@ body {
     /* 2. Kontwole gwosè logo a espesyalman pou mobil */
     .logo-img {
         /* Si w vle l pi gwo, mete 45px oswa 50px. Si l twò gwo, mete 35px */
-        height: 45px; 
+        height: 35px; 
         
         /* Ou ka ajiste wotè l tou pou l santre ak span yo */
-        transform: translateY(-5px); 
+        transform: translateY(px); 
     }
+}
+
+/* Animasyon pou Navbar la */
+.navbar {
+    animation: slideDownNav 0.6s ease-out;
+}
+
+@keyframes slideDownNav {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }
 
 /* --- NOUVO CHIRIJI MOBILE OVERLAY --- */
@@ -365,4 +409,72 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+
+/* 2. Style Kat yo (Cards) */
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+    background-color: #f4f9f4; /* Yon vèt trè pal pou background nan */
+}
+
+.action-card {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 14px;
+    font-weight: 500;
+    color: #2E7D32;
+    opacity: 0; /* Pou animasyon kaskad la kòmanse nan kache */
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+.card-arrow {
+    background: #e8f5e9;
+    color: #2E7D32;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* 3. Lojik Kaskad (Animasyon youn apre lòt) */
+.accordion-item.active .action-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delè pou chak kat parèt (Emosyon!) */
+.action-card:nth-child(1) { transition-delay: 0.1s; }
+.action-card:nth-child(2) { transition-delay: 0.15s; }
+.action-card:nth-child(3) { transition-delay: 0.2s; }
+.action-card:nth-child(4) { transition-delay: 0.25s; }
+.action-card:nth-child(5) { transition-delay: 0.3s; }
+.action-card:nth-child(6) { transition-delay: 0.35s; }
+
+
+/* --- BLÒK KI MANKE A --- */
+
+.accordion-body {
+    max-height: 0;            /* Li kòmanse fèmen */
+    overflow: hidden;         /* Pou anyen pa depase */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Sa a se glisad la */
+    background-color: #f4f9f4; /* Ti background vèt pal la */
+}
+
+/* Lè JavaScript la ajoute klas .active sou eleman paran an */
+.accordion-item.active .accordion-body {
+    max-height: 500px; /* Yon limit ki gwo ase pou kontni an ka louvri nèt */
 }
