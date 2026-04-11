@@ -14,12 +14,18 @@ body {
 
 /* 2. NAVBAR (Gwo Ekran) */
 .navbar {
-    background-color: white;
-    width: 100%;
+    /* Nou desann li nan 0.4 (40%) pou n ka wè dèyè l pi byen */
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    
+    /* Nou ogmante flou a (blur) */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #000;
+    /* Retire liy nwa a, mete youn ki pi dous */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 .nav-container {
