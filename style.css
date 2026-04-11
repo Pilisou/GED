@@ -445,22 +445,43 @@ body {
 }
 
 .card-arrow {
-    background: #e8f5e9;
-    color: #2E7D32;
+    /* CHIRIJI: background transparan pou flèch la ka parèt byen */
+    background: rgba(255, 215, 0, 0.1); 
+    
+    /* CHIRIJI: Koulè Jòn flanm (Gold) */
+    color: #FFD700; 
+    
     width: 28px;
     height: 28px;
+    
+    /* Santraj pafè */
     display: flex;
     align-items: center;
     justify-content: center;
+    
     border-radius: 50%;
-    font-size: 16px;
-    transition: transform 0.3s ease;
+    
+    /* CHIRIJI: Yon ti kras pi gwo pou n wè flèch la byen */
+    font-size: 18px; 
+    
+    /* CHIRIJI: Ajoute yon ti bò jòn dous */
+    border: 1px solid #FFD700;
+    
+    line-height: 0; /* Pou anpeche font la pouse flèch la desann */
+    transition: all 0.3s ease;
 }
 
-/* 3. Lojik Kaskad (Animasyon youn apre lòt) */
+/* 3. Lojik Kaskad (Animasyon youn apre lòt) - Pa gen chanjman la */
 .accordion-item.active .action-card {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* TI BONUS: Lè w pase sou kat la, flèch la ap klere plis */
+.action-card:hover .card-arrow {
+    background: #FFD700;
+    color: white;
+    transform: scale(1.1);
 }
 
 /* Delè pou chak kat parèt (Emosyon!) */

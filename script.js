@@ -56,3 +56,42 @@ accHeaders.forEach(header => {
         }
     });
 });
+
+
+// Seleksyone tout kat aksyon yo
+const actionCards = document.querySelectorAll('.action-card');
+
+actionCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const opsyon = card.querySelector('span').innerText;
+        
+        // 1. MEMORIZASYON (Sove l nan sesyon an)
+        localStorage.setItem('denye_opsyon', opsyon);
+        console.log("Opsyon chwazi: " + opsyon);
+
+        // 2. ANIMASYON FÈMTI (Pa twò brit)
+        // Nou ba li yon ti delè pou moun nan wè klik la
+        card.style.backgroundColor = "#e8f5e9"; // Yon ti flash vèt
+        
+        setTimeout(() => {
+            const overlay = document.getElementById('mobile-overlay');
+            
+            // Nou rann fèmti a dous ak CSS transition
+            overlay.style.opacity = "0";
+            overlay.style.transform = "translateX(-20px)"; // Li glise yon ti kras
+            
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                // Remete style yo nòmal pou pwochen fwa
+                overlay.style.opacity = "1";
+                overlay.style.transform = "translateX(0)";
+                document.body.style.overflow = 'auto';
+                
+                // 3. REDIREKSYON OUBYEN FILTRAJ
+                // Isit la ou ka mete lojik pou filtre paj la selon 'opsyon' an
+                alert("Ou chwazi: " + opsyon + " pilisou poko ban m done yo");
+                
+            }, 400); // Tan pou animasyon an fini
+        }, 200);
+    });
+});
