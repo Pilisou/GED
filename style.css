@@ -266,6 +266,7 @@ body {
         font-size: 11px;
         animation: pulseButton 2s infinite ease-in-out;
         box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+        gap: 3px !important;
     }
 
     @keyframes pulseButton {
