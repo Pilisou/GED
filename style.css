@@ -797,9 +797,6 @@ body {
 
 
 /* --- ESTRIKTI ANVLÒP LAN --- */
-/* ============================================================
-   ANIMASYON ANVLÒP GED (VERSION VIBE VIDEYO + ONB + KOUDOUK)
-   ============================================================ */
 
 /* 1. KONTENÈ LYEN AN (AK SOUKE KOUDOUK) */
 .envelope-link {
@@ -818,12 +815,12 @@ body {
     width: 38px;
     height: 26px;
     background-color: #ffffff;
-    border-radius: 2px;
+    border-radius: 4px;
     /* ONB LAN: Lonbraj 3D ki ba l pwofondè */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.30); 
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 1.3); 
     /* LIY ANBA: Pou l pa parèt depoze plat */
     border-bottom: 2px solid #ccc;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.08);
 }
 
 /* 3. KAT LA (VÈT GED + EKRI BLANCH) */
