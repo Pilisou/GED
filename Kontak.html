@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez GED</title>
+    <style>
+        /* CSS pou tout estrikti fòm nan */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .ged-main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .ged-card {
+            background: #ffffff;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            gap: 40px;
+        }
+
+        /* Pati Goch */
+        .ged-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .ged-badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #2563eb;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .ged-content h1 {
+            font-size: 42px;
+            color: #1e293b;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        .ged-content p {
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .ged-info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .ged-icon-box {
+            width: 45px;
+            height: 45px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .ged-text-box strong {
+            display: block;
+            color: #334155;
+            font-size: 16px;
+        }
+
+        .ged-text-box span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Pati Dwat (Fòm nan) */
+        .ged-form {
+            flex: 1.2;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .ged-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .ged-form-group label {
+            font-weight: 600;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .ged-form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .ged-form-row .ged-form-group {
+            flex: 1;
+        }
+
+        .ged-form input, .ged-form textarea {
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            background: #f8fafc;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .ged-form input:focus, .ged-form textarea:focus {
+            border-color: #2563eb;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .ged-form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .ged-btn {
+            background: #2563eb;
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .ged-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ged-card { padding: 30px; }
+            .ged-form-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ged-main-wrapper">
+        <div class="ged-card">
+            
+            <div class="ged-content">
+                <span class="ged-badge">Contactez-nous</span>
+                <h1>GED est là pour vous aider !</h1>
+                <p>Vous avez des questions ou besoin d'assistance ? Contactez l'équipe de GED pour discuter de votre projet ou obtenir du support.</p>
+                
+                <div class="ged-info-item">
+                    <div class="ged-icon-box">💬</div>
+                    <div class="ged-text-box">
+                        <strong>Discutez avec nous</strong>
+                        <span>Réponse sous 24 heures.</span>
+                    </div>
+                </div>
+                
+                <div class="ged-info-item">
+                    <div class="ged-icon-box">📞</div>
+                    <div class="ged-text-box">
+                        <strong>Appelez-nous</strong>
+                        <span>Disponible de 9h00 à 18h00</span>
+                    </div>
+                </div>
+
+                <div class="ged-info-item">
+                    <div class="ged-icon-box">📍</div>
+                    <div class="ged-text-box">
+                        <strong>Visitez-nous</strong>
+                        <span>Lagonave,Anse-Á-Galets Rue 130, Auprés du tribunal. </span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="ged-form">
+                <div class="ged-form-group">
+                    <label>Votre Nom</label>
+                    <input type="text" placeholder="Jean Dupont">
+                </div>
+
+                <div class="ged-form-row">
+                    <div class="ged-form-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="exemple@domaine.com">
+                    </div>
+                    <div class="ged-form-group">
+                        <label>Téléphone (optionnel)</label>
+                        <input type="text" placeholder="+509 0000-0000">
+                    </div>
+                </div>
+
+                <div class="ged-form-group">
+                    <label>Sujet</label>
+                    <input type="text" placeholder="Quel sujet vous intéresse ?">
+                </div>
+
+                <div class="ged-form-group">
+                    <label>Votre Message</label>
+                    <textarea placeholder="Écrivez votre message ici..."></textarea>
+                </div>
+
+                <button type="submit" class="ged-btn">
+                    Envoyer maintenant
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+    document.querySelector('.ged-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Anpeche paj la rafrechi
+
+        const btn = document.querySelector('.ged-btn');
+        const originalText = btn.innerHTML;
+
+        // 1. Chanje tèks bouton an
+        btn.innerHTML = "Envoi en cours... ⏳";
+        btn.classList.add('loading');
+
+        // 2. Simulation voye mesaj (2 segonn)
+        setTimeout(() => {
+            btn.innerHTML = "Message Envoyé ! ✅";
+            
+            // 3. Apre 1.5 segonn ankò, tounen nan paj akèy
+            setTimeout(() => {
+                window.location.href = "index.html"; 
+            }, 1500);
+
+        }, 2000);
+    });
+</script>
+</body>
+</html>
