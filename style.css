@@ -795,3 +795,132 @@ body {
 }
 
 
+
+/* --- ESTRIKTI ANVLÒP LAN --- */
+/* ============================================================
+   ANIMASYON ANVLÒP GED (VERSION VIBE VIDEYO + ONB + KOUDOUK)
+   ============================================================ */
+
+/* 1. KONTENÈ LYEN AN (AK SOUKE KOUDOUK) */
+.envelope-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-decoration: none;
+    /* Ti souke pou fè konnen se yon link li ye */
+    animation: koudoukKoudouk 4s infinite ease-in-out;
+}
+
+/* 2. WRAPPER ANVLÒP (BLANCH + ONB + LIY ANBA) */
+.envelope-wrapper {
+    position: relative;
+    width: 38px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    /* ONB LAN: Lonbraj 3D ki ba l pwofondè */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.30); 
+    /* LIY ANBA: Pou l pa parèt depoze plat */
+    border-bottom: 2px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 3. KAT LA (VÈT GED + EKRI BLANCH) */
+.envelope-letter {
+    position: absolute;
+    bottom: 2px;
+    left: 4px;
+    width: 30px;
+    height: 20px;
+    background-color: #2E7D32; /* Vèt GED */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    animation: letterUp 5s infinite ease-in-out;
+}
+
+.letter-text {
+    font-size: 7px;
+    font-weight: 800;
+    color: #ffffff; /* Ekri blanch jan w te di a */
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* 4. PATI DEVAN (BLANCH + LIY FEN NWA) */
+.envelope-front {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 19px solid transparent;
+    border-right: 19px solid transparent;
+    border-bottom: 14px solid #fcfcfc; /* Ti diferans pou wè pli a */
+    top: 12px;
+    z-index: 4;
+}
+
+/* Liy nwa fen nan bouch k ap ouvri yo */
+.envelope-front::before {
+    content: '';
+    position: absolute;
+    width: 19px;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1); /* Liy fen */
+    transform: rotate(35deg);
+    left: -19px;
+    top: -7px;
+}
+
+.envelope-front::after {
+    content: '';
+    position: absolute;
+    width: 19px;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1); /* Liy fen */
+    transform: rotate(-35deg);
+    right: -19px;
+    top: -7px;
+}
+
+/* 5. TÈT LA (FLAP BLANCH KI OUVRI) */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 19px solid transparent;
+    border-right: 19px solid transparent;
+    border-top: 16px solid #ffffff;
+    /* Yon ti onb anba flap la lè l fèmen */
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+    transform-origin: top;
+    z-index: 5;
+    animation: flapOpen 5s infinite ease-in-out;
+}
+
+/* --- LOGIK ANIMASYON YO --- */
+
+/* Animasyon Koudouk Koudouk (Souke) */
+@keyframes koudoukKoudouk {
+    0%, 85%, 100% { transform: scale(1) rotate(0); }
+    88% { transform: scale(1.05) rotate(3deg); }
+    92% { transform: scale(1.05) rotate(-3deg); }
+    96% { transform: scale(1.05) rotate(2deg); }
+}
+
+/* Ouvèti Flap la an bouk */
+@keyframes flapOpen {
+    0%, 20% { transform: rotateX(0deg); z-index: 5; }
+    40%, 75% { transform: rotateX(180deg); z-index: 1; }
+    90%, 100% { transform: rotateX(0deg); z-index: 5; }
+}
+
+/* Lèt k ap moute a */
+@keyframes letterUp {
+    0%, 40% { transform: translateY(0); opacity: 0; }
+    55%, 70% { transform: translateY(-18px); opacity: 1; }
+    85%, 100% { transform: translateY(0); opacity: 0; }
+}
