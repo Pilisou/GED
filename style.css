@@ -205,20 +205,36 @@ body {
     margin-left: auto; /* Sa a pouse yo nèt adwat */
 }
 .nav-item:hover::before { display: block; }
-
 .sign-in {
     text-decoration: none;
-    color: #444; /* Yon koulè gri fonse olye de nwa nèt */
+    color: #444;
     font-weight: 700;
-    font-size: 12px; /* Yon ti kras pi gwo pou l ka li pi byen */
-    padding: 6px 12px;
-    border-radius: 6px;
-    letter-spacing: 0.5px;
+    font-size: 12px;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
     position: relative;
-    display: flex;
-    align-items: center;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Ti liy lan k ap parèt anba "Écris-nous" */
+.sign-in::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: #2E7D32; /* Vèt la */
+    transition: width 0.3s ease;
+}
+
+.sign-in:hover {
+    color: #2E7D32;
+}
+
+.sign-in:hover::after {
+    width: 100%; /* Liy lan ouvri nèt sou hover */
 }
 
 /* Yon ti background lejè lè w pase sou li */
@@ -254,23 +270,40 @@ body {
 
 .btn-give {
     position: relative;
+    /* Yon vèt ki gen plis lavi men ki pa "flash" twòp */
+    background: linear-gradient(135deg, #388E3C, #2E7D32); 
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 50px; /* Fòm "Pilule" - li pi modèn pase kare */
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    border: none; /* Nou retire tout border di */
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.25); /* Lonbraj dous */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #2E7D32; /* Vèt fonse pwofesyonèl */
-    color: white !important;
-    padding: 12px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
-    border: none;
-    cursor: pointer;
+}
+
+.btn-give:hover {
+    /* Li vin pi fonse yon ti kras epi lonbraj la moute */
+    background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.35);
+}
+
+/* Ti efè limyè anndan an pou l pa "plat" */
+.btn-give::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.1), transparent);
+    pointer-events: none;
 }
 /* Tèks Aider a */
 .btn-txt {
@@ -281,6 +314,7 @@ body {
     letter-spacing: 1px;
     z-index: 5;
     transition: transform 0.4s ease;
+    transform: translateY(-3px);
 }
 /* LIMYÈ K AP PASE A (SHINE) */
 .btn-give::before {
@@ -478,18 +512,40 @@ body {
 
     .btn-give {
     position: relative;
+    /* Yon vèt ki gen plis lavi men ki pa "flash" twòp */
+    background: linear-gradient(135deg, #388E3C, #2E7D32); 
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 50px; /* Fòm "Pilule" - li pi modèn pase kare */
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    border: none; /* Nou retire tout border di */
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.25); /* Lonbraj dous */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #2E7D32;
-    border-radius: 10px;
-    text-decoration: none;
     overflow: hidden;
-    height: 50px; /* Wotè fiks pou l toujou byen chita */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 0 20px; /* Bay tèks la espas sou kote */
-    min-width: 100px; /* Pou l pa janm vin twò piti */
-    border: none;
+}
+
+.btn-give:hover {
+    /* Li vin pi fonse yon ti kras epi lonbraj la moute */
+    background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.35);
+}
+
+/* Ti efè limyè anndan an pou l pa "plat" */
+.btn-give::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.1), transparent);
+    pointer-events: none;
 }
 
 /* Tèks la */
@@ -501,6 +557,7 @@ body {
     z-index: 5;
     transition: transform 0.4s ease;
     white-space: nowrap; /* Anpeche tèks la desann anba */
+    transform: translateY(-3px);
 }
 
     @keyframes pulseButton {
