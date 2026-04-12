@@ -89,9 +89,33 @@ actionCards.forEach(card => {
                 
                 // 3. REDIREKSYON OUBYEN FILTRAJ
                 // Isit la ou ka mete lojik pou filtre paj la selon 'opsyon' an
-                alert("Ou chwazi: " + opsyon + " pilisou poko ban m done yo");
+                alert("Ou chwazi: " + opsyon + " pilisou poko ban m done");
                 
             }, 400); // Tan pou animasyon an fini
         }, 200);
     });
 });
+
+
+
+    const btnNotif = document.getElementById('notification-btn');
+    const dropdown = document.getElementById('notification-dropdown');
+    const btnDark = document.getElementById('dark-mode-toggle');
+
+    // Louvri/Fèmen
+    btnNotif.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('active');
+    });
+
+    // Fèmen lè w klike deyò
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && e.target !== btnNotif) {
+            dropdown.classList.remove('active');
+        }
+    });
+
+    // Dark Mode Toggle
+    btnDark.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });

@@ -13,13 +13,11 @@
             
             <div class="left-section">
                 <div class="hamburger" id="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </div>
-               <div class="logo">
-    <img src="logo.png" alt="Logo GED" class="logo-img">
-</div>
+                <div class="logo">
+                    <img src="logo.png" alt="Logo GED" class="logo-img">
+                </div>
             </div>
 
             <nav class="nav-links">
@@ -28,22 +26,20 @@
                     <div class="dropdown-content">
                         <a href="#">Donner mensuellement</a>
                         <a href="#">Collecter des fonds</a>
-                        <a href="#">Parrainer un projet d'éclairage</a>
-                        <a href="#">Devenir un partenaire</a>
+                        <a href="#">Parrainer yon pwojè</a>
+                        <a href="#">Devenir partenaire</a>
                         <a href="#">Dons planifiés</a>
-                        <a href="#">Visiter le Lab d'Expérience</a>
+                        <a href="#">Visiter le Lab</a>
                     </div>
                 </div>
 
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link">À PROPOS <span class="arrow-down">▾</span></a>
                     <div class="dropdown-content">
-                        <div class="dropdown-header-text">EXPLORER GED EN UN COUP D'ŒIL</div>
+                        <div class="dropdown-header-text">EXPLORER GED</div>
                         <a href="#">Le modèle 100%</a>
                         <a href="#">Notre travail</a>
-                        <a href="#">Comment nous travaillons</a>
-                        <a href="#">Rencontrez le fondateur</a>
-                        <a href="#">Nos rapports financiers</a>
+                        <a href="#">Rapports financiers</a>
                         <a href="#">Contactez-nous</a>
                     </div>
                 </div>
@@ -53,85 +49,159 @@
                 </div>
             </nav>
 
-            <div class="nav-actions">
-                <a href="#" class="sign-in">CONNECTER</a>
-                <div class="vertical-divider"></div>
-               <a href="#" class="btn-give">
-    <div class="animation-container">
-        <span class="particle p1"></span>
-        <span class="particle p2"></span>
-        <span class="particle p3"></span>
-        <span class="particle p4"></span>
-        
-        <img src="Men.png" class="money-animation" alt="Don">
+        <div class="nav-actions">
+    <div class="nav-controls">
+        <div class="notification-wrapper">
+            <button id="notification-btn" class="icon-btn has-notif">
+                <svg class="bell-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="notification-dot"></span>
+            </button>
+            
+            <div id="notification-dropdown" class="notification-box">
+                <div class="notif-header">
+                    <span class="live-dot">🔴</span> Dernières Actualités
+                </div>
+
+                <div class="notif-content">
+                    <div class="notif-item">
+                        <span class="notif-icon">🏗️</span>
+                        <div class="notif-details">
+                            <p><strong>Siège Social:</strong> La construction des nouveaux bureaux GED touche à sa fin.</p>
+                            <span class="notif-time">Avril 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <span class="notif-icon">🏆</span>
+                        <div class="notif-details">
+                            <p><strong>Excellence:</strong> Remise de prix aux lauréats de la 9ème année à Anse-à-Galets.</p>
+                            <span class="notif-time">Mars 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <span class="notif-icon">🎓</span>
+                        <div class="notif-details">
+                            <p><strong>Éducation:</strong> Prise en charge des frais scolaires pour les familles vulnérables.</p>
+                            <span class="notif-time">Mars 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <span class="notif-icon">✨</span>
+                        <div class="notif-details">
+                            <p><strong>Impact:</strong> Distribution de 50 nouvelles lampes solaires dans la communauté.</p>
+                            <span class="notif-time">Février 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <span class="notif-icon">📋</span>
+                        <div class="notif-details">
+                            <p><strong>Transparence:</strong> Le rapport annuel d'impact 2025 est désormais disponible.</p>
+                            <span class="notif-time">Janvier 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <button id="dark-mode-toggle" class="icon-btn">
+    <svg class="moon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    
+    <svg class="sun-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+</button>
     </div>
-</a>
+</div>
+
+                <a href="#" class="sign-in">S'informer</a>
+                <div class="vertical-divider"></div>
+                
+                <a href="#" class="btn-give">
+                    <span class="btn-text">DONS</span>
+                    <div class="animation-container">
+                        <span class="particle p1"></span><span class="particle p2"></span>
+                        <span class="particle p3"></span><span class="particle p4"></span>
+                        <img src="Men.png" class="money-animation" alt="Don">
+                    </div>
+                </a>
             </div>
         </div>
     </header>
 
     <div class="mobile-overlay" id="mobile-overlay">
-    <div class="overlay-header">
-        <div class="header-left-mobile">
-            <div class="close-btn" id="close-btn">&times;</div>
-            <img src="Lampe.png" alt="GED Logo" class="menu-lamp-icon">
+        <div class="overlay-header">
+            <div class="header-left-mobile">
+                <div class="close-btn" id="close-btn">&times;</div>
+                <img src="Lampe.png" alt="Logo" class="menu-lamp-icon">
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn-give">
+                    <span class="btn-text">DONS</span>
+                    <div class="animation-container">
+                        <img src="Men.png" class="money-animation">
+                    </div>
+                </a>
+            </div>
         </div>
-        
-        <div class="nav-actions">
-            <a href="#" class="sign-in">CONNECTER</a>
-            <div class="vertical-divider"></div>
-            <a href="#" class="btn-give">
-                DONNER 
-                <img src="Lampe.png" alt="" class="btn-icon-img">
-            </a>
-        </div>
-    </div>
 
-   <div class="overlay-content">
-    <div class="accordion-item">
-        <div class="accordion-header">
-            PASSER À L'ACTION 
-            <span class="circle-icon blue-pale">+</span>
-        </div>
-        <div class="accordion-body">
-            <div class="action-grid">
-                <div class="action-card"><span>Donner mensuellement</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Collecter des fonds</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Parrainer yon pwojè</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Devenir partenaire</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Dons planifiés</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Lab d'Expérience</span> <span class="card-arrow">→</span></div>
+        <div class="overlay-content">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    PASSER À L'ACTION 
+                    <span class="circle-icon blue-pale">+</span>
+                </div>
+                <div class="accordion-body">
+                    <div class="action-grid">
+                        <div class="action-card"><span>Donner mensuellement</span> <span class="card-arrow">→</span></div>
+                        <div class="action-card"><span>Collecter des fonds</span> <span class="card-arrow">→</span></div>
+                        <div class="action-card"><span>Parrainer yon pwojè</span> <span class="card-arrow">→</span></div>
+                    </div>
+                </div>
             </div>
-        </div> </div> <div class="accordion-item">
-        <div class="accordion-header">
-            À PROPOS 
-            <span class="circle-icon blue-pale">+</span>
-        </div>
-        <div class="accordion-body">
-            <div class="action-grid">
-                <div class="action-card"><span>Le modèle 100%</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Notre travail</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Metòd nou</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Fondatè nou</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Rapports financiers</span> <span class="card-arrow">→</span></div>
-                <div class="action-card"><span>Contactez-nous</span> <span class="card-arrow">→</span></div>
-            </div>
-    </div>
-</div>
 
-        <div class="accordion-item no-plus">
-            <div class="accordion-header">
-                POURQUOI LA LUMIÈRE ? 
-                <span class="circle-icon blue-pale animated-arrow">→</span>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    À PROPOS 
+                    <span class="circle-icon blue-pale">+</span>
+                </div>
+                <div class="accordion-body">
+                    <div class="action-grid">
+                        <div class="action-card"><span>Le modèle 100%</span> <span class="card-arrow">→</span></div>
+                        <div class="action-card"><span>Notre travail</span> <span class="card-arrow">→</span></div>
+                        <div class="action-card"><span>Rapports financiers</span> <span class="card-arrow">→</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item no-plus">
+                <div class="accordion-header">
+                    POURQUOI LA LUMIÈRE ? 
+                    <span class="circle-icon blue-pale animated-arrow">→</span>
+                </div>
+            </div>
+
+            <div class="overlay-footer">
+                <a href="#"><span class="footer-icon"></span> Consulter</a>
+                <a href="#"><span class="footer-icon">✉️</span> Rester informé</a>
             </div>
         </div>
-        
-        <div class="overlay-footer">
-            <a href="#"><span class="footer-icon">👤</span> Sign in</a>
-            <a href="#"><span class="footer-icon">✉️</span> Get our emails to stay in the know</a>
-        </div>
     </div>
-</div>
 
     <script src="script.js"></script>
 </body>
