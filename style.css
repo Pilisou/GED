@@ -168,10 +168,40 @@ body {
 
 .sign-in {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 0 10px;
+    color: #444; /* Yon koulè gri fonse olye de nwa nèt */
+    font-weight: 700;
+    font-size: 12px; /* Yon ti kras pi gwo pou l ka li pi byen */
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Yon ti background lejè lè w pase sou li */
+.sign-in:hover {
+    color: #2E7D32; /* Koulè vèt la */
+    background-color: rgba(46, 125, 50, 0.08); /* Yon vèt trè pal */
+}
+
+/* OUBYEN: Yon ti liy ki parèt anba l */
+.sign-in::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #2E7D32;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.sign-in:hover::after {
+    width: 60%; /* Liy lan ap louvri soti nan mitan */
 }
 
 .vertical-divider {
@@ -182,23 +212,29 @@ body {
         opacity: 0.7;
 }
 
-
 .btn-give {
-    width: 65px; 
-    height: 35px;
-    background-color: #2E7D32;
-    border-radius: 8px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; 
-    position: relative;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    background-color: #2E7D32; /* Vèt fonse pwofesyonèl */
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+    border: none;
+    cursor: pointer;
 }
-
 /* Tèks Aider a */
 .btn-txt {
-    color: white;
+    color: rgb(207, 187, 2);
     font-weight: 800;
     font-size: 13px;
     text-transform: uppercase;
