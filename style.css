@@ -5,35 +5,27 @@
     box-sizing: border-box;
 }
 
-/* Koulè nòmal (Light) */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #F9F4E8; 
+    background-color: #F9F4E8;
     color: #333;
-    transition: all 0.3s ease; /* Sa fè chanjman an dous */
+    overflow-x: hidden;
 }
-
-/* Lè w teke lalin nan, kòd sa a ap deklannche */
-body.dark-mode {
-    background-color: #121212 !important; /* Fon an vin nwa */
-    color: #ffffff !important;           /* Tèks la vin blan */
-}
-
 
 /* 2. NAVBAR (Gwo Ekran) */
 .navbar {
     /* Nou desann li nan 0.4 (40%) pou n ka wè dèyè l pi byen */
-    background-color: rgba(1, 0, 255, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
     
     /* Nou ogmante flou a (blur) */
-    backdrop-filter: blur(40px) !important;
-    -webkit-backdrop-filter: blur(40px) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     
     position: sticky;
     top: 0;
     z-index: 1000;
     /* Retire liy nwa a, mete youn ki pi dous */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
 }
 
 .nav-container {
@@ -175,50 +167,13 @@ body.dark-mode {
 }
 
 .sign-in {
-    font-size: 11px; /* Yon ti kras pi gwo pou l pi lizib */
-    padding: 6px 12px;
-    font-weight: 700;
-    text-transform: uppercase; /* Majiskil rann li pi pwofesyonèl */
-    letter-spacing: 1.2px;    /* Ti espas ant lèt yo bay "look" liks lan */
-    color: inherit;
     text-decoration: none;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(-3px) !important;
-    opacity: 0.9;
+    color: #333;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0 10px;
 }
 
-/* TI LIGNE KI AP PARET ANBA L (HOVER EFFECT) */
-.sign-in::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 1.5px;
-    background-color: #2E7D32; /* Vèt siyati w la */
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-/* LE MOUN PASE SOURIT OUBYEN KLIKER */
-.sign-in:hover {
-    opacity: 1;
-    color: #2E7D32;
-    letter-spacing: 1.5px; /* Lèt yo ouvri yon ti kras plis */
-}
-
-.sign-in:hover::after {
-    width: 70%; /* Liy lan parèt dousman */
-}
-
-/* POU DARK MODE (Si w vle l klere yon ti jan) */
-body.dark-mode .sign-in {
-    color: #ffffff;
-}
-body.dark-mode .sign-in::after {
-    background-color: #4CAF50; /* Yon vèt ki pi fliyoresan pou fènwa a */
-}
 .vertical-divider {
     width: 1px;
     height: 30px;
@@ -229,8 +184,8 @@ body.dark-mode .sign-in::after {
 
 
 .btn-give {
-    width: 90px; 
-    height: 40px;
+    width: 65px; 
+    height: 35px;
     background-color: #2E7D32;
     border-radius: 8px;
     display: flex;
@@ -239,23 +194,7 @@ body.dark-mode .sign-in::after {
     overflow: hidden; 
     position: relative;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-    padding-left: 10px;      /* Sa a pouse tèks la soti sou bò gòch */
-    padding-right: 5px;
-    transform: translateY(-2px);
 }
-.btn-text {
-    color: #FFFFFF;
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; /* Yon font modèn */
-    font-size: 13px;
-    font-weight: 850;            /* Li byen gra pou l ka vizib */
-    letter-spacing: 1.2px;      /* Ti espas ant lèt yo pou "look" premium lan */
-    text-transform: uppercase;  /* Toujou an majiskil */
-    z-index: 5;                 /* Pou l rete anlè animasyon kòb la */
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); /* Yon ti lonbraj dous pou l "pop" */
-    transition: all 0.3s ease;
-}
-
-
 
 /* LIMYÈ K AP PASE A (SHINE) */
 .btn-give::before {
@@ -341,24 +280,21 @@ body.dark-mode .sign-in::after {
 
 
 /* 3. MOBIL (Ti Ekran) */
-/* 3. HAMBURGER CHOUCHOU */
 .hamburger {
     display: none; /* Sou mobil li dwe flex */
     flex-direction: column;
-    gap: 8px; /* Espas ant liy yo */
+    gap: 7px; /* Espas ant liy yo */
     cursor: pointer;
-    padding: px; /* Pou zòn klike a pi gwo */
     z-index: 1001;
     transition: transform 0.3s ease;
 }
 
 .hamburger span {
     width: 25px;      /* Lajè ki pi vizib */
-    height: 2.9px;    /* Epesè ki pi pwofesyonèl */
+    height: 3px;    /* Epesè ki pi pwofesyonèl */
     background-color: #2E7D32; /* Vèt pou match ak sit la */
-    border-radius: 5px;
+    border-radius: 9px;
     transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6); /* Efè elastik */
-    transform: translateY(-10px) !important;
 }
 
 /* Liy mitan an pi kout (Stil modèn) */
@@ -394,149 +330,86 @@ body.dark-mode .sign-in::after {
 
 @media (max-width: 1024px) {
     .nav-container {
-        padding-left: 7px;  
-        padding-right: 8px; 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+     padding-left: 14px;  
+     padding-right: 15px; 
     }
 
-    /* 1. Kache lyen mitan yo */
+    /* 1. Kache sèlman lyen mitan yo */
     .nav-links {
         display: none;
     }
 
-    /* 2. Hamburger parèt */
+    /* 2. Fòse Hamburger ak Logo rete agoch */
     .hamburger {
         display: flex;
-    }
-    .logo-img {
-       transform: translateY(-14px) !important;  
-       height: 38px;
+        
     }
 
-    /* 3. Aksyon bò dwat (Connecter + Dons) */
+    /* 3. Fòse "SE CONNECTER" ak "DONNER" parèt sou mobil bò dwat */
     .nav-actions {
-    display: flex !important;
-    margin-left: auto;
-    align-items: center !important; 
-    height: auto !important; /* RETIRE 100px SA A, METE AUTO */
-}
+        display: flex !important; /* !important pou kraze ansyen kòd la */
+        margin-left: auto;
+    }
 
-   .sign-in {
-    font-size: 11px; /* Yon ti kras pi gwo pou l pi lizib */
-    padding: 6px 1px;
-    font-weight: 700;
-    text-transform: uppercase; /* Majiskil rann li pi pwofesyonèl */
-    letter-spacing: 1px;    /* Ti espas ant lèt yo bay "look" liks lan */
-    color: inherit;
-    text-decoration: none;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(-10px) !important;
-    opacity: 0.9;
-}
+    /* Ranje gwosè pou yo pa debòde sou ti telefòn */
+    .sign-in {
+        font-size: 9px;
+        padding: 0 2px;
+    }
 
-/* TI LIGNE KI AP PARET ANBA L (HOVER EFFECT) */
-.sign-in::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 1.5px;
-    background-color: #2E7D32; /* Vèt siyati w la */
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-/* LE MOUN PASE SOURIT OUBYEN KLIKER */
-.sign-in:hover {
-    opacity: 1;
-    color: #2E7D32;
-    letter-spacing: 1.5px; /* Lèt yo ouvri yon ti kras plis */
-}
-
-.sign-in:hover::after {
-    width: 70%; /* Liy lan parèt dousman */
-}
-
-/* POU DARK MODE (Si w vle l klere yon ti jan) */
-body.dark-mode .sign-in {
-    color: #ffffff;
-}
-body.dark-mode .sign-in::after {
-    background-color: #4CAF50; /* Yon vèt ki pi fliyoresan pou fènwa a */
-}
-
-    /* CHIRIJI BOUTON DONS LAN */
     .btn-give {
-        width: 80px !important;  /* Nou fòse gwosè a pou l pa pran sa Desktop la */
-        height: 40px !important;
-        padding: 0;
-        font-size: 10px;
+        padding: 5px 3px;
+        font-size: 11px;
         animation: pulseButton 2s infinite ease-in-out;
         box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-left: 8px !important;  /* Yon ti kras mwens paske bouton an piti */
-        justify-content: center;
-        
-    transform: translateY(-12px) !important; /* Nimewo negatif la ap rale l monte wo */
-}
-    
+        gap: 3px !important;
+    }
 
     @keyframes pulseButton {
         0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
+        50% { transform: scale(1.03); }
         100% { transform: scale(1); }
     }
 
+    /* Rann separasyon vètikal la pi bèl */
     .vertical-divider {
-        height: 25px;
-        width: 1px;
-        background-color: #2E7D32;
+        background-color: #2E7D32; /* Nou mete l vèt pou l match */
         opacity: 0.5;
-       margin-right: 5px;
-        transform: translateY(-10px) !important;
     }
 
-    /* 4. LOGO AK ANIMASYON "SOTI ANBA MOUTE" */
+    .vertical-divider {
+        height: 30px;
+        background-color: #2E7D32; /* Nou mete l vèt pou l match */
+        opacity: 0.7;
+    }
+
     .left-section {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        gap: 10px; /* Sa a ap redui espas ant span yo ak logo a */
     }
 
-    .btn-text {
-        font-size: 12px !important;  /* Nou redui li pou ti ekran */
-        font-weight: 900;           /* Pi gra toujou paske l piti */
-        letter-spacing: 0.8px;      /* Nou redui espas la yon ti kras */
-        text-shadow: none;          /* Nou retire lonbraj la pou l pi pwòp sou mobil */
-        transform: translateY(-1px);
+    .logo {
+        margin-left: px; /* Yon maj negatif pou rale logo a bò gòch plis toujou */
+    }
 
+    /* 2. Kontwole gwosè logo a espesyalman pou mobil */
+    .logo-img {
+        /* Si w vle l pi gwo, mete 45px oswa 50px. Si l twò gwo, mete 35px */
+        height: 45px; 
+        
+        /* Ou ka ajiste wotè l tou pou l santre ak span yo */
+        transform: translateY(px); 
     }
 }
 
-
-/* 5. NAVBAR KI SOTI ANWO DESANN (Pou tout ekran) */
+/* Animasyon pou Navbar la */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    animation: slideDownNav 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: slideDownNav 0.6s ease-out;
 }
 
 @keyframes slideDownNav {
-    from { 
-        transform: translateY(-100%); 
-    }
-    to { 
-        transform: translateY(0); 
-    }
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }
-
 
 /* --- NOUVO CHIRIJI MOBILE OVERLAY --- */
 .mobile-overlay {
@@ -568,6 +441,10 @@ body.dark-mode .sign-in::after {
     gap: 10px; /* Ti gap ant Kwa a ak Lanp lan */
 }
 
+.menu-lamp-icon {
+    height: 32px;
+    width: auto;
+}
 
 .close-btn {
     font-size: 32px;
@@ -718,134 +595,4 @@ body.dark-mode .sign-in::after {
 /* Lè JavaScript la ajoute klas .active sou eleman paran an */
 .accordion-item.active .accordion-body {
     max-height: 500px; /* Yon limit ki gwo ase pou kontni an ka louvri nèt */
-}
-
-
-/* --- CHIRIJI NOTIFIKASYON AK DARK MODE --- */
-
-.notification-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.nav-controls {
-    position: fixed;
-    bottom: -5px; /* Distans ak anba ekran an */
-    left: 350px;   /* Distans ak bò gòch la */
-    right: 20px;  /* Distans ak bò dwat la */
-    display: flex;
-    justify-content: space-between; /* Sa ap pouse youn agoch, youn adwat */
-    align-items: center;
-    z-index: 2000; /* Pou yo rete anlè tout bagay */
-    pointer-events: none; /* Pou yo pa bloke klike sou rès paj la */
-}
-#dark-mode-toggle {
-    pointer-events: auto;
-}
-
-.icon-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 7px;
-    border-radius: 50%;
-    position: relative;
-    color: inherit;
-    transition: background 0.3s;
-    display: flex;
-}
-
-.icon-btn:hover { background: rgba(0, 0, 0, 0.1); }
-
-.notification-dot {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 10px;
-    height: 10px;
-    background: #fff347;
-    border: 2px solid white;
-    border-radius: 50%;
-}
-
-/* SANTRE NAN MITAN */
-.notification-box {
-    display: none;
-    position: absolute;
-    bottom: 130%;
-    top: auto;
-    right: 0; /* Pouse mwatye */
-    transform: translateX(50%) translateY(10px); /* Rale l tounen nan sant la */
-    width: 320px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    z-index: 1000;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.notification-box.active {
-    display: block;
-    transform: translateX(50%) translateY(0);
-}
-
-.notif-header {
-    padding: 15px;
-    background: #f8f9fa;
-    font-weight: bold;
-    border-bottom: 1px solid #eee;
-    color: #333;
-}
-
-.notif-item {
-    display: flex;
-    padding: 15px;
-    gap: 12px;
-    border-bottom: 1px solid #f1f1f1;
-    transition: 0.2s;
-    cursor: pointer;
-}
-
-.notif-item:hover { background: #f0f7ff; }
-
-.notif-icon {
-    font-size: 20px;
-    background: #eef2f7;
-    min-width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.notif-details p { margin: 0; font-size: 13px; color: #444; line-height: 1.4; text-align: left; }
-.notif-time { font-size: 11px; color: #999; margin-top: 4px; display: block; }
-
-/* DARK MODE */
-body.dark-mode .notification-box { background: #1e1e1e; color: white; border: 1px solid #333; }
-body.dark-mode .notif-header { background: #2a2a2a; color: white; border-bottom: 1px solid #333; }
-body.dark-mode .notif-item { border-bottom: 1px solid #333; }
-body.dark-mode .notif-item:hover { background: #2d2d2d; }
-body.dark-mode .notif-icon { background: #333; }
-body.dark-mode .notif-details p { color: #ccc; }
-
-.live-dot { animation: pulse 1.5s infinite; }
-@keyframes pulse { 50% { opacity: 0.2; } }
-/* 1. Pa defo (Lè paj la klè), nou kache solèy la */
-.sun-svg {
-    display: none;
-}
-
-/* 2. Lè paj la gen klas .dark-mode */
-/* Nou kache lalin nan */
-body.dark-mode .moon-svg {
-    display: none;
-}
-
-/* Nou montre solèy la */
-body.dark-mode .sun-svg {
-    display: block;
-    color: #f1c40f; /* Koulè jòn solèy */
 }
