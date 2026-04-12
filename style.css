@@ -363,9 +363,42 @@ body {
 
     /* Ranje gwosè pou yo pa debòde sou ti telefòn */
     .sign-in {
-        font-size: 9px;
-        padding: 0 2px;
-    }
+    text-decoration: none;
+    color: #444; /* Yon koulè gri fonse olye de nwa nèt */
+    font-weight: 700;
+    font-size: 12px; /* Yon ti kras pi gwo pou l ka li pi byen */
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Yon ti background lejè lè w pase sou li */
+.sign-in:hover {
+    color: #2E7D32; /* Koulè vèt la */
+    background-color: rgba(46, 125, 50, 0.08); /* Yon vèt trè pal */
+}
+
+/* OUBYEN: Yon ti liy ki parèt anba l */
+.sign-in::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #2E7D32;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.sign-in:hover::after {
+    width: 60%; /* Liy lan ap louvri soti nan mitan */
+}
 
     .btn-give {
     position: relative;
