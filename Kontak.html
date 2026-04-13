@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactez GED</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    
     <style>
-        /* CSS pou tout estrikti fòm nan */
+        /* CSS ou te genyen an */
         body {
             margin: 0;
             padding: 0;
@@ -33,7 +35,6 @@
             gap: 40px;
         }
 
-        /* Pati Goch */
         .ged-content {
             flex: 1;
             min-width: 300px;
@@ -94,7 +95,6 @@
             font-size: 14px;
         }
 
-        /* Pati Dwat (Fòm nan) */
         .ged-form {
             flex: 1.2;
             min-width: 300px;
@@ -132,7 +132,13 @@
             font-size: 15px;
             outline: none;
             transition: 0.3s;
+            width: 100%;
+            box-sizing: border-box;
         }
+
+        /* Ajusteman pou drapo a pa kache tèks */
+        .iti { width: 100%; }
+        .iti__flag-container { border-radius: 10px 0 0 10px; }
 
         .ged-form input:focus, .ged-form textarea:focus {
             border-color: #2563eb;
@@ -167,7 +173,6 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .ged-card { padding: 30px; }
             .ged-form-row { flex-direction: column; }
@@ -204,36 +209,36 @@
                     <div class="ged-icon-box">📍</div>
                     <div class="ged-text-box">
                         <strong>Visitez-nous</strong>
-                        <span>Lagonave,Anse-Á-Galets Rue 130, Auprés du tribunal. </span>
+                        <span>Lagonave, Anse-Á-Galets Rue 130, Auprés du tribunal. </span>
                     </div>
                 </div>
             </div>
 
-            <form class="ged-form">
+            <form class="ged-form" action="https://formspree.io/f/mnjlarnl" method="POST">
                 <div class="ged-form-group">
                     <label>Votre Nom</label>
-                    <input type="text" placeholder="Jean Dupont">
+                    <input type="text" name="nom" placeholder="Jean Dupont" required>
                 </div>
 
                 <div class="ged-form-row">
                     <div class="ged-form-group">
                         <label>E-mail</label>
-                        <input type="email" placeholder="exemple@domaine.com">
+                        <input type="email" name="email" placeholder="exemple@domaine.com" required>
                     </div>
                     <div class="ged-form-group">
-                        <label>Téléphone (optionnel)</label>
-                        <input type="text" placeholder="+509 0000-0000">
+                        <label>Téléphone</label>
+                        <input type="tel" id="phone" name="telephone" required>
                     </div>
                 </div>
 
                 <div class="ged-form-group">
                     <label>Sujet</label>
-                    <input type="text" placeholder="Quel sujet vous intéresse ?">
+                    <input type="text" name="sujet" placeholder="Quel sujet vous intéresse ?" required>
                 </div>
 
                 <div class="ged-form-group">
                     <label>Votre Message</label>
-                    <textarea placeholder="Écrivez votre message ici..."></textarea>
+                    <textarea name="message" placeholder="Écrivez votre message ici..." required></textarea>
                 </div>
 
                 <button type="submit" class="ged-btn">
@@ -245,28 +250,43 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-    document.querySelector('.ged-form').addEventListener('submit', function(e) {
-        e.preventDefault(); // Anpeche paj la rafrechi
+        // 1. Inisyalize bwat telefòn nan ak drapo Ayiti
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "ht",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
 
-        const btn = document.querySelector('.ged-btn');
-        const originalText = btn.innerHTML;
+        // 2. Jesyon voye fòm nan ak AJAX (san rafrechi paj la)
+        const form = document.querySelector('.ged-form');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); 
 
-        // 1. Chanje tèks bouton an
-        btn.innerHTML = "Envoi en cours... ⏳";
-        btn.classList.add('loading');
+            const btn = document.querySelector('.ged-btn');
+            btn.innerHTML = "Envoi en cours... ⏳";
+            btn.disabled = true;
 
-        // 2. Simulation voye mesaj (2 segonn)
-        setTimeout(() => {
-            btn.innerHTML = "Message Envoyé ! ✅";
-            
-            // 3. Apre 1.5 segonn ankò, tounen nan paj akèy
-            setTimeout(() => {
-                window.location.href = "index.html"; 
-            }, 1500);
+            const formData = new FormData(form);
 
-        }, 2000);
-    });
-</script>
+            // Voye done yo sou Formspree
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                btn.innerHTML = "Message Envoyé ! ✅";
+                setTimeout(() => {
+                    window.location.href = "index.html"; 
+                }, 1500);
+            } else {
+                btn.innerHTML = "Erreur ❌";
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
