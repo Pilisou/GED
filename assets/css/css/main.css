@@ -956,7 +956,7 @@ section,
 
 @media (max-width: 768px) {
     .hero {
-        height: 100vh;
+        height: 9vh;
         display: flex;
         align-items: flex-end; /* Kole tèks la anba */
         padding-bottom: 50px;
