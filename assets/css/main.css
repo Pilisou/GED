@@ -220,7 +220,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(13, 43, 26, 0.95);
+  --background-color: rgba(0, 0, 0, 0.0);
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
@@ -828,277 +828,41 @@ section,
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Playfair+Display:ital,wght@1,300&display=swap');
 
 .hero {
-    height: 100vh;
+    height: 100vh; /* Pou l pran tout ekran an */
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: center; /* Santre tèks la vètikalman */
+    justify-content: center; /* Santre tèks la orizontalman */
     position: relative;
-    overflow: hidden;
-    color: #ffffff !important;
-    font-family: 'Inter', sans-serif !important;
-
-    /* Kouch fonse bò gòch + Nouvo foto a */
-    background-image: 
-        linear-gradient(to right, rgba(2, 25, 12, 0.9) 0%, rgba(2, 25, 12, 0.4) 40%, rgba(0, 0, 0, 0) 70%),
-        url('../img/ero.jpg') !important;
-    
-    background-size: cover !important;
-    background-position: center 5% !important; /* Kounye a nou ka kite l nan mitan */
-    background-repeat: no-repeat !important;
-}
-
-.hero-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.hero-content {
-    /* Nou rale tout blòk la moute yon ti kras */
-    margin-top: -60px !important; 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Kole agoch jan nou te di a */
-}
-
-/* 1. LIY 1: Bâtir ensemble (Pi wo epi Layite) */
-.ged-highlight {
-    display: block !important;
-    font-family: 'Playfair Display', serif !important;
-    font-size: 36px !important;
-    font-style: italic;
-    font-weight: 300 !important;
-    letter-spacing: 4px !important; /* Louvri lèt yo nèt */
     color: #ffffff;
-    margin-bottom: 5px !important;
-    opacity: 0.9;
-}
-
-/* 2. LIY 2: avec (Stil ki pral fè moun di WAAAW) */
-.avec-text {
-    display: flex !important;
-    align-items: center; /* Pou liy lan nivo ak mo a */
-    font-family: 'Playfair Display', serif !important;
-    font-style: italic;
-    font-size: 22px !important;
-    color: #22a043; /* Vèt GED la pou kontras */
-    margin-bottom: 15px !important;
-    font-weight: 400;
-}
-
-/* Ti liy vèt la bò kote "avec" la */
-.avec-text::after {
-    content: "";
-    display: inline-block;
-    width: 80px; /* Longè ti liy lan */
-    height: 1px;
-    background-color: #22a043;
-    margin-left: 20px; /* Distans ant mo a ak liy lan */
-    vertical-align: middle;
-}
-@media (min-width: 992px) {
-.hero-content p {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 19px !important;
-    font-weight: 300 !important;
-    line-height: 1.9 !important; /* Louvri liy yo pou l parèt chè */
-    color: rgba(255, 255, 255, 0.9) !important;
     
-    /* LAYITE: Nou ba l lajè pou l balanse tit la */
-    max-width: 680px !important; 
-    margin-bottom: 50px !important;
-    letter-spacing: 0.6px;
-    
-    /* TI TOUCHE MODÈN: Yon ti rido transparan dèyè tèks la */
-    background: rgba(255, 255, 255, 0.03);
-    padding: 15px 0 15px 20px;
-    border-left: 2px solid rgba(34, 160, 67, 0.5); /* Ti liy vèt fen sou bò gòch */
-    backdrop-filter: blur(2px); /* Yon ti flou dous dèyè l */
+    /* Foto a sèlman ak yon ti kouch nwa senp pou tèks la parèt */
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5)), 
+                url('../img/oro.jpg') no-repeat center center;
+    background-size: cover;
 }
-.title-main{
-  color: #ffff;
-}
-
-.hero-btn {
-        display: inline-block !important;
-        background-color: #22a043 !important; /* Vèt GED sèlman */
-        color: #ffffff !important;
-        
-        /* Gwosè pafè: pa twò gwo, pa twò piti */
-        padding: 14px 50px !important; 
-        border-radius: 50px !important;
-        
-        font-size: 15px !important;
-        font-weight: 600 !important;
-        text-decoration: none !important;
-        letter-spacing: 1px !important;
-        
-        /* Yon border vèt fonse trè fen pou l pa parèt plat */
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        
-        transition: all 0.3s ease-in-out !important;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
-    }
-
-    /* Efè lè sourit la pase sou li (Hover) */
-    .hero-btn:hover {
-        transform: translateY(-2px) !important;
-        background-color: #1b8a37 !important; /* Li vin yon ti kras pi fonse */
-        
-        /* Se la a ti "waaaw" la ye: yon border jòn lò ki parèt dousman */
-        border: 1px solid #f2c94c !important; 
-        color: #f2c94c !important; /* Tèks la pran yon ti koulè lò tou */
-        
-        box-shadow: 0 6px 20px rgba(34, 160, 67, 0.3) !important;
-    }
-}
-
 
 @media (max-width: 720px) {
-    .hero {
-        height: 100vh !important;
-       
-        display: flex;
-        align-items: flex-end; /* Kole tèks la anba */
-        padding-bottom: 80px important;
-        position: relative;
-        padding-top: 60px !important;
-        
-        /* 3 KOUCH JI A (GRADIENT): Fonse anba, moute klè anlè */
-        background-image: 
-            linear-gradient(to top, 
-                rgba(2, 25, 12, 1) 0%,       /* Fonse nèt (Bouton/Paragraf) */
-                rgba(2, 25, 12, 0.7) 45%,    /* Medium (kote Tit la ye) */
-                rgba(2, 25, 12, 0) 80%       /* Klè nèt (kote Plant lan ye) */
-            ),
-            url('../img/hero.jpg') !important;
-            
-        background-position: center 40% !important;
-        background-size: cover !important;
-    }
-
-    .hero-content {
-        width: 100% !important;
-        padding: 0 10px !important;
-        text-align: center !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center !important;
-        margin-top: 10px !important;
-      }
-
-    .hero-content h1 {
-        margin-bottom: 30px !important;
-    }
-
-   
-/* --- NOUVO STYLE POU LIY 1 AK LIY 2 (MOBIL) --- */
-
-/* Liy 1: Bâtir ensemble l'espoir de demain */
-.ged-highlight {
-    display: block !important;
-    font-family: 'Playfair Display', serif !important;
-    font-size: 26px !important; /* Li moute pou l layite kò l */
-    font-style: italic;
-    font-weight: 400 !important;
-    line-height: 1.3 !important;
-    letter-spacing: 1.5px !important; /* Sa louvri liy lan nèt */
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-bottom: 2px !important;
-    color: #ffffff !important;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Ti lonbraj pou l soti plis */
-}
-
-/* Liy 2: avec (Touche nèf la) */
-.avec-text {
-    display: flex !important; /* Nou itilize flex pou n mete ti liy yo */
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif !important;
-    font-style: italic;
-    font-size: 25px !important;
-    color: rgba(255, 255, 255, 0.7) !important; /* Yon ti jan transparan pou l pa vòlè fòs lòt yo */
-    margin-bottom: 25px !important;
-    width: 100%;
-}
-
-/* Ti liy dekoratif sou kote "avec" la */
-.avec-text::before,
-.avec-text::after {
-    content: "";
-    flex: 0 1 30px; /* Longè ti liy yo */
-    height: 1px;
-    background-color: rgba(198, 211, 18, 0.3); /* Liy byen fen */
-    margin: 0 15px; /* Distans ant liy lan ak mo "avec" la */
-}
-
-  /* Liy 3: Gonave Espoir de Demain (Solid/Yon sèl liy) */
-    .title-main {
-        display: block !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 800 !important; /* Nou desann li nan 800 pou l pa twò gra */
-        font-size: 32px !important;   /* Nou desann li nan 26px pou l ka "layite" sou yon liy */
-        line-height: 1.1 !important;
-        letter-spacing: -1.5px;      /* Nou sere lèt yo yon ti kras pou l ka antre */
-        white-space: nowrap !important; /* SA A SE PREMYE SEKRE A: li fòse liy lan pa janm koupe */
-        width: 100% !important;
-        color: #fff;
-        
-    }
-
-    /* Paragraf 2 liy edmi */
-    .hero-content p {
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        max-width: 600px !important; /* Sa a fòse koupe a */
-        margin-bottom: 2px !important;
-        opacity: 0.9;
-    }
-
-    /* --- BOUTON DECOUVRIR "GLOW & PULSE" (MOBIL) --- */
-.hero-btn {
-    display: inline-block !important;
-    background-color: #22a043 !important; /* Vèt GED la */
-    color: #ffffff !important;
+  .hero {
+    /* 1. Foto ou chwazi a */
+    background-image: url('../img/hero.jpg') !important;
     
-    /* Nou fè l long epi fen jan w renmen l lan */
-    padding: 14px 65px !important; 
-    border-radius: 50px !important;
+    /* 2. Wotè ki pap ba w tèt chaje sou Chrome (LG/Samsung) */
+    height: 100dvh !important;
     
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-    text-transform: none !important;
+    /* 3. Pozisyon pou foto a pa janm parèt kase */
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     
-    /* 1. Ti lonbraj vèt k ap briye (Glow) */
-    box-shadow: 0 4px 15px rgba(34, 160, 67, 0.4) !important;
-    
-    /* 2. Animasyon "Pulse" la */
-    animation: pulseGlow 2s infinite !important;
-    
-    transition: all 0.3s ease !important;
+    /* 4. Santre tèks la */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
 }
 
-/* Kòd pou animasyon an k ap fè l briye a */
-@keyframes pulseGlow {
-    0% {
-        box-shadow: 0 0 0 0 rgba(34, 160, 67, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(34, 160, 67, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(34, 160, 67, 0);
-    }
-}
-
-/* Efè lè moun nan klike sou li ak dwèt li */
-.hero-btn:active {
-    transform: scale(0.95) !important;
-    background-color: #1b8a37 !important;
-}
-}
 /*--------------------------------------------------------------
 # Clients Section
 -------------------------------------------------------------
