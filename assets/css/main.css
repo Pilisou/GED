@@ -1888,3 +1888,52 @@ section,
         padding: 40px 15px; /* Mwens espas sou kote pou l parèt pi gwo */
     }
 }
+
+/*--------------------------------------------------------------
+# Saki anba Hero a.
+--------------------------------------------------------------*/
+/* Stil jeneral pou seksyon an */
+.spring-section {
+    background-color: #F7F1D7;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Mete foto yo sou menm liy ak ti espas */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* Stil imaj yo: fòm ak lonbraj */
+.img-tilt {
+    width: 100px; 
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+/* Efè panche yo (Kout ak kout!) */
+.left { transform: rotate(-8deg); }
+.right { transform: rotate(8deg); }
+.center { width: 115px; height: 160px; z-index: 2; margin-bottom: 10px; }
+
+/* Tèks ak Bouton */
+.spring-text h2 { color: #2D3E33; font-size: 22px; margin-bottom: 15px; }
+.spring-text p { color: #555; font-size: 14px; max-width: 450px; margin: 0 auto 25px; }
+
+.btn-spring {
+    display: inline-block;
+    background: #359135;
+    color: #2D3E33;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+}
