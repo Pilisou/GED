@@ -824,52 +824,9 @@ section,
 
 /*--------------------------------------------------------------
 # Hero Section
--------------------------------------------------------------/* Enpòte Font yo */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Playfair+Display:ital,wght@1,300&display=swap');
-
-.hero {
-    height: 100vh; /* Pou l pran tout ekran an */
-    width: 100%;
-    display: flex;
-    align-items: center; /* Santre tèks la vètikalman */
-    justify-content: center; /* Santre tèks la orizontalman */
-    position: relative;
-    color: #ffffff;
-    
-    /* Foto a sèlman ak yon ti kouch nwa senp pou tèks la parèt */
-    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5)), 
-                url('../img/.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-@media (max-width: 720px) {
-  .hero {
-    /* 1. Foto ou chwazi a */
-    background-image: url('../img/hero.jpg') !important;
-    
-    /* 2. Wotè ki pap ba w tèt chaje sou Chrome (LG/Samsung) */
-    height: 100dvh !important;
-    
-    /* 3. Pozisyon pou foto a pa janm parèt kase */
-    background-position: center center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    
-    /* 4. Santre tèks la */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-}
-
-/*--------------------------------------------------------------
-# Clients Section
 -------------------------------------------------------------
 
-/*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 # About Section - Style GED
 --------------------------------------------------------------*/
