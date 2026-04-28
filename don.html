@@ -51,6 +51,56 @@
             line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;
         }
 
+        @media (min-width: 992px) {
+    /* 1. Layout: Nou redui padding la pou n pa fòse eleman yo moute twò wo */
+    .hero-content {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center;
+        padding: 0 5% 0 0 !important; /* Kole bò gòch nèt */
+        height: 100vh;
+    }
+
+    /* 2. Bwat Tèks Vèt Transparan (The Glass Look) */
+    .hero-text {
+        flex: 0 0 52%; 
+        /* Nou mete "rgba" a pi ba (0.6) pou n wè bak la pi byen */
+        background: rgba(27, 67, 50, 0.65) !important; 
+        backdrop-filter: blur(5px); /* Yon ti flou dous pou lekti */
+        padding: 50px 60px 50px 40px !important;
+        border-radius: 0 40px 40px 0;
+        box-shadow: 15px 0 35px rgba(0,0,0,0.15);
+    }
+
+    /* 3. Kare Don an (Nou redui wotè a) */
+    .donation-box {
+        flex: 0 0 420px; /* Lajè a bon */
+        margin-right: 6% !important;
+        /* Olye nou fòse yon gwo wotè, n ap kite kontni an deside */
+        min-height: auto !important; 
+        max-height: 520px; /* Pou l pa janm twò wo ankò */
+        padding: 35px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 12px !important;
+        background: #ffffff;
+    }
+
+    /* Ajisteman tèks pou l pa "kase" trop */
+    .hero-text h1 {
+        font-size: 3.2rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-text p {
+        font-size: 1.15rem !important;
+        line-height: 1.6;
+        margin-bottom: 30px !important;
+    }
+}
+
         /* Kat Don an (Kare a) */
         .donation-box {
             background: white; color: var(--gri-cho);
