@@ -209,61 +209,108 @@
         font-family: 'Inter', sans-serif;
     }
 
-    .footer-container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.5fr 1fr; /* 2 kolòn sèlman */
-        gap: 50px;
-    }
+    /* RESET SENP */
+.site-footer {
+    background-color: #ffffff;
+    padding: 60px 20px 40px;
+    border-top: 4px solid #2ecc71; /* Ti liy vè GED liks la */
+    font-family: 'Arial', sans-serif;
+}
 
-    .footer-column h3 {
-        color: var(--jon-gold); /* Sèvi ak jòn gold ou a */
+.footer-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-side {
+    display: flex;
+    flex: 1;
+    justify-content: space-around; /* Sa separe 2 kolòn yo nan chak bò */
+}
+
+.footer-column h3 {
+    color: #2ecc71; /* Tit yo an vè GED klè */
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-transform: lowercase; /* Style Charity Water a */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #777; /* Yon gri ki pa twò nwa */
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #2ecc71;
+    padding-left: 5px;
+}
+
+/* PATI ANBA */
+.footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: #444;
+    font-size: 1.3rem;
+    margin: 0 12px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #2ecc71;
+}
+
+.legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legal-links a {
+    font-size: 0.85rem;
+    color: #999;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* MOBILE: Pou l parèt egzakteman jan w mande l la */
+@media (max-width: 768px) {
+    .footer-wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .footer-side {
+        justify-content: space-between; /* Kenbe 2 kolòn yo sou menm liy nan telefòn */
         margin-bottom: 20px;
-        font-size: 1.2rem;
     }
 
-    .footer-column p {
-        color: #ccc;
-        line-height: 1.6;
-        font-size: 0.95rem;
+    .footer-column {
+        width: 48%; /* Asire yo rete 2 bò kòt a kòt */
     }
-
-    .footer-column ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .footer-column ul li {
-        margin-bottom: 12px;
-    }
-
-    .footer-column ul li a {
-        color: #ccc;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .footer-column ul li a:hover {
-        color: white;
-    }
-
-    .footer-bottom {
-        border-top: 1px solid #333;
-        margin-top: 40px;
-        padding-top: 20px;
-        text-align: center;
-        font-size: 0.85rem;
-        color: #777;
-    }
-
-    /* Reponsiv pou mobil */
-    @media (max-width: 768px) {
-        .footer-container {
-            grid-template-columns: 1fr; /* Youn anba lòt sou mobil */
-            text-align: center;
-        }
-    }
+}
     </style>
 </head>
 <body>
@@ -380,35 +427,63 @@
     </section>
 
 
-<footer class="footer-ged">
-    <div class="footer-container">
-        <div class="footer-column">
-            <h3>GED</h3>
-            <p>Bâtir ensemble l'espoir de demain à la Gonâve.</p>
-            <div class="contact-info">
-                <p>📧 info@gedhaiti.org</p>
-                <p>📞 +509 XX XX XX XX</p>
-                <p>📍 La Gonâve, Haïti</p>
+<footer class="site-footer">
+    <div class="footer-wrapper">
+        
+        <div class="footer-side">
+            <div class="footer-column">
+                <h3>agissez</h3>
+                <ul>
+                    <li><a href="#">donner</a></li>
+                    <li><a href="#">rejoignez le printemps</a></li>
+                    <li><a href="#">parrainer une communauté</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>impliquez-vous</h3>
+                <ul>
+                    <li><a href="#">créer un compte</a></li>
+                    <li><a href="#">collecte de fonds</a></li>
+                    <li><a href="#">diffusez pour nous</a></li>
+                </ul>
             </div>
         </div>
 
-        <div class="footer-column">
-            <h3>Explorer</h3>
-            <ul>
-                <li><a href="#hero">Faire un don</a></li>
-                <li><a href="#">Notre mission</a></li>
-                <li><a href="#">Impact au terrain</a></li>
-                <li><a href="#">Contactez-nous</a></li>
-            </ul>
+        <div class="footer-side">
+            <div class="footer-column">
+                <h3>apprenez</h3>
+                <ul>
+                    <li><a href="#">notre travail</a></li>
+                    <li><a href="#">modèle à 100 %</a></li>
+                    <li><a href="#">états financiers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>connecter</h3>
+                <ul>
+                    <li><a href="#">contactez-nous</a></li>
+                    <li><a href="#">centre d'aide</a></li>
+                    <li><a href="#">partenariats</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="social-links">
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="legal-links">
+            <a href="#">politique de confidentialité</a>
+            <a href="#">processus de divulgation responsable</a>
         </div>
     </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2026 GED - Tous droits réservés.</p>
-    </div>
 </footer>
-
-
 <script>
 // 1. Chanje tab (Mensuel/Once)
 function switchTab(el) {
