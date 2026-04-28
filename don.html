@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GED - Faire un Don</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+       :root {
+    /* Fondasyon GED - Liks ak Nati */
+    --krem: #FDFBF7;           /* Nou kenbe l, li bay stil "Premium Paper" */
+    --gri-cho: #1B4332;        /* Nou ranplase gri a pa Vèt Forè GED la, sa bay plis klas */
+    --jon-gold: #FFC425;       /* Jòn aksyon an, li pafè */
+    --teks: #12151A;           /* Yon nwa ki pi fonse pou tèks yo ka "pope" */
+    
+    /* Touche "WAAAW" siplemantè */
+    --shadow-liks: 0 20px 40px rgba(0,0,0,0.08);
+    --transition-dous: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+        body {
+            margin: 0; font-family: 'Inter', sans-serif;
+            background-color: var(--krem); color: var(--teks);
+            scroll-behavior: smooth;
+        }
+
+        /* --- BLÒK 1 & 2: HERO AK DON (FOTO 1 & 2) --- */
+        .hero-ged {
+            display: flex; flex-direction: column;
+            background-color: var(--gri-cho); color: white;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%; height: 400px;
+            object-fit: cover; /* */
+        }
+
+        .hero-content {
+            padding: 50px 20px; text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif; font-size: 2.2rem;
+            margin-bottom: 20px; line-height: 1.2; /* */
+        }
+
+        .hero-content p {
+            font-size: 1.1rem; color: #ccc; margin-bottom: 40px;
+            line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+
+        /* Kat Don an (Kare a) */
+        .donation-box {
+            background: white; color: var(--gri-cho);
+            padding: 30px; border-radius: 4px;
+            max-width: 400px; margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+       /* --- TABS YO (Stil Charity, nanm GED) --- */
+.donation-tabs {
+    display: flex; 
+    justify-content: space-between;
+    margin-bottom: 25px; 
+    border-bottom: 2px solid #f0f0f0; /* Yon ti liy pi dous */
+}
+
+.tab { 
+    padding: 0 10px 12px 10px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.tab.active { 
+    border-bottom: 3px solid var(--jon-gold); 
+    color: var(--teks); /* Tèks la vin pi solid */
+}
+
+/* --- INPUT LA (Kote "Explwa" a fèt la) --- */
+.amount-input {
+    border: 2px solid #eee; /* Yon ti jan pi solid pou liks la */
+    padding: 25px 20px; 
+    font-size: 2.2rem; /* Gwo gwosè pou l parèt enpòtan */
+    font-weight: 800;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    color: var(--gri-cho); /* Sèvi ak vèt fonse GED a pou chif yo */
+    transition: border-color 0.4s ease;
+}
+
+.amount-input:focus-within {
+    border-color: var(--jon-gold);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+}
+
+/* --- BOUTON AN (Pwen Final WAAAW la) --- */
+.btn-main {
+    background: var(--gri-cho); /* Vèt pwofon GED la pou liks */
+    color: white; 
+    border: none; 
+    width: 100%;
+    padding: 22px; 
+    font-weight: 800; 
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer; 
+    margin-top: 25px; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50px; /* Stil bouton "Faire un Don" */
+}
+
+.btn-main:hover {
+    background: var(--jon-gold);
+    color: var(--teks);
+    transform: translateY(-3px); /* Ti mouvman liks la */
+    box-shadow: 0 15px 30px rgba(255, 196, 37, 0.3);
+}
+
+        /* --- BLÒK 3: TRUST (FOTO 3) --- */
+        .section-trust {
+            background: white; padding: 100px 20px; text-align: center;
+        }
+
+        .section-trust h2 {
+            font-family: 'Playfair Display', serif; font-size: 2rem;
+            margin-bottom: 25px; /* */
+        }
+
+        .trust-logos {
+            display: flex; justify-content: center; gap: 30px;
+            margin-top: 40px; opacity: 0.7; flex-wrap: wrap;
+        }
+
+        /* --- BLÒK 4: COMMUNITY (FOTO 4) --- */
+.section-community {
+    background: var(--krem); 
+    padding: 60px 10px; /* Redui padding la pou mobil */
+    text-align: center;
+}
+
+.polaroid-grid {
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; /* Ti espas ant yo */
+    margin-bottom: 50px; 
+    flex-wrap: nowrap; /* FÒSE YO RETE SOU MENM LIY LAN */
+}
+
+.polaroid-grid img {
+    width: 30%; /* Chak foto pran 30% lajè ekran an */
+    max-width: 180px; 
+    height: auto; 
+    aspect-ratio: 4/5; /* Kenbe fòm Polaroid la */
+    object-fit: cover;
+    border: 5px solid white; /* Border pi piti pou mobil */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.tilt-l { transform: rotate(-6deg) translateY(10px); }
+.tilt-r { transform: rotate(6deg) translateY(10px); }
+        /* --- BLÒK 5: PARRAINAGE (FOTO 5) --- */
+        .section-big-don {
+            padding: 100px 20px; text-align: center; background: white;
+        }
+
+        .big-img {
+            width: 100%; max-width: 800px; border-radius: 8px;
+            margin-bottom: 30px; /* */
+        }
+
+        /* --- LOJIK GWO EKRAN (DESKTOP) --- */
+        @media (min-width: 992px) {
+            .hero-ged {
+                height: 100vh; flex-direction: row; overflow: hidden;
+            }
+
+            .hero-image {
+                position: absolute; width: 100%; height: 100%; z-index: 1;
+            }
+
+            .hero-content {
+                position: relative; z-index: 2; width: 100%;
+                display: grid; grid-template-columns: 1.2fr 0.8fr;
+                align-items: center; text-align: left; padding: 0 8%;
+                background: rgba(0,0,0,0.2); /* Vwal cho */
+            }
+
+            .hero-content h1 { font-size: 4rem; max-width: 700px; }
+            .hero-content p { margin-left: 0; font-size: 1.3rem; }
+
+            .donation-box { margin-right: 0; width: 420px; }
+        }
+
+        .footer-ged {
+        background-color: #1f3b17; /* Nwa fonsé tankou Charity Water */
+        color: #ffffff;
+        padding: 60px 20px 20px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr; /* 2 kolòn sèlman */
+        gap: 50px;
+    }
+
+    .footer-column h3 {
+        color: var(--jon-gold); /* Sèvi ak jòn gold ou a */
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .footer-column p {
+        color: #ccc;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-column ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+        color: white;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #333;
+        margin-top: 40px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #777;
+    }
+
+    /* Reponsiv pou mobil */
+    @media (max-width: 768px) {
+        .footer-container {
+            grid-template-columns: 1fr; /* Youn anba lòt sou mobil */
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <section class="hero-ged">
+        <img src="assets/img/a1.jpg" class="hero-image" alt="Impact GED">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Écrivons ensemble une nouvelle histoire pour la Gonâve.</h1>
+                <p>Chaque graine plantée, chaque enfant scolarisé est une promesse d'autonomie. À la Gonâve, nous ne demandons pas de la charité, mais des partenaires pour transformer le potentiel en réalité. Votre soutien n'est pas qu'un don, c'est l'étincelle qui bâtit une communauté forte, digne et fière de son héritage.</p>
+                <div style="
+    border: 1.5px solid #27ae60; 
+    background: rgba(39, 174, 96, 0.15); 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 10px 28px; 
+    border-radius: 50px; 
+    font-size: 0.9rem; 
+    font-weight: 800; 
+    color: #27ae60; 
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <span style="font-size: 1.2rem;">🌳</span> 
+    VOTRE GÉNÉROSITÉ ENRACINE LE CHANGEMENT
+</div>
+            </div>
+
+            <div class="donation-box" style="position: relative; overflow: hidden;">
+    
+    <div id="step-1" style="transition: 0.4s;">
+        <div class="donation-tabs">
+            <span class="tab active" onclick="switchTab(this)">MENSUEL</span>
+            <span class="tab" onclick="switchTab(this)">UNE SEULE FOIS</span>
+        </div>
+        <div class="amount-input">
+            <span>$ <input type="number" id="input-lajan" value="100" onfocus="if(this.value=='100')this.value=''" style="border:none; background:transparent; font-size:inherit; font-weight:inherit; color:inherit; width:85px; outline:none; font-family:inherit;"></span>
+            <small style="font-size: 0.9rem; color: #888;">DOLLAR AMÉRICAIN</small>
+        </div>
+        <p id="p-enpak" style="margin-top: 20px; font-size: 0.9rem; color: var(--gri-cho);">
+            💛 Un don de <span id="span-montan">100</span> $ permet de soutenir l'éducation et l'autonomie de 2 familles.
+        </p>
+        <button class="btn-main" onclick="montrePeman()">DONNER MAINTENANT</button>
+    </div>
+
+    <div id="step-2" style="position: absolute; top: 25px; left: 20px; right: 20px; bottom: 25px; opacity: 0; pointer-events: none; transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 50px);">
+    
+    <div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px;">
+            <p id="resime-tèks" style="font-weight: 700; font-size: 1rem; margin: 0; color: #222; letter-spacing: 0.5px;"></p>
+            <span onclick="tounenDeye()" style="text-decoration: underline; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #e67e22; text-transform: uppercase;">MODIFIER</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+            
+            <div class="pay-opt" style="border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+                <img src="assets/img/visa.jpg" alt="Card" style="width: 45px; height: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; object-fit: contain;">
+                <span style="font-size: 0.7rem; font-weight: 800; display: block; color: #555;">CARD</span>
+            </div>
+
+            <div class="pay-opt" style="border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+                <img src="assets/img/peypal.jpg" alt="PayPal" style="width: 45px; height: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; object-fit: contain;">
+                <span style="font-size: 0.7rem; font-weight: 800; display: block; color: #555;">PAYPAL</span>
+            </div>
+
+            <div class="pay-opt" style="border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+                <img src="assets/img/moncash.jpg" alt="MonCash" style="width: 45px; height: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; object-fit: contain;">
+                <span style="font-size: 0.7rem; font-weight: 800; display: block; color: #555;">MONCASH</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-main" id="btn-final" style="width: 100%; margin-top: 20px; padding: 15px; font-weight: 700;">DONNER</button>
+</div>
+    </section>
+
+    <section class="section-trust">
+        <h2>Vous méritez de donner en toute confiance</h2>
+        <p style="max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8;">
+            L'intégralité de nos frais de fonctionnement est financée par des donateurs privés. 
+            Cela garantit que 100% de votre contribution va directement aux projets sur le terrain.
+        </p>
+        <div class="trust-logos">
+            <img src="assets/img/logo1.jpg" alt="Candid" height="40">
+            <img src="assets/img/logo2.jpg" alt="Charity Nav" height="40">
+            <img src="assets/img/logo3.jpg" alt="BBB" height="40">
+        </div>
+    </section>
+
+    <section class="section-community">
+        <div class="polaroid-grid">
+            <img src="assets/img/a2.jpg" class="tilt-l">
+            <img src="assets/img/a3.jpg">
+            <img src="assets/img/a4.jpg" class="tilt-r">
+        </div>
+        <h2>Rejoignez la communauté GED</h2>
+        <p style="margin-bottom: 30px; color: #555;">Investissez dans le développement durable et l'éducation.</p>
+        <button class="btn-main" style="max-width: 350px;">INSCRIVEZ-VOUS AUJOURD'HUI</button>
+    </section>
+
+    <section class="section-big-don">
+        <img src="assets/img/projet.jpg" class="big-img" alt="Projet">
+        <h2>Parrainez un projet d'envergure</h2>
+        <p style="max-width: 600px; margin: 20px auto; color: #555;">
+            Transformez une communauté entière, une école ou un centre de santé grâce à un don majeur.
+        </p>
+        <button class="btn-main" style="max-width: 300px; background: white; border: 2px solid var(--jon-gold); color: var(--teks);">EN SAVOIR PLUS</button>
+    </section>
+
+
+<footer class="footer-ged">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>GED</h3>
+            <p>Bâtir ensemble l'espoir de demain à la Gonâve.</p>
+            <div class="contact-info">
+                <p>📧 info@gedhaiti.org</p>
+                <p>📞 +509 XX XX XX XX</p>
+                <p>📍 La Gonâve, Haïti</p>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Explorer</h3>
+            <ul>
+                <li><a href="#hero">Faire un don</a></li>
+                <li><a href="#">Notre mission</a></li>
+                <li><a href="#">Impact au terrain</a></li>
+                <li><a href="#">Contactez-nous</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 GED - Tous droits réservés.</p>
+    </div>
+</footer>
+
+
+<script>
+// 1. Chanje tab (Mensuel/Once)
+function switchTab(el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+}
+
+// 2. Lojik kalkil an tan reyèl pou tèks enpak la
+document.getElementById('input-lajan').addEventListener('input', function() {
+    let val = this.value || 0;
+    document.getElementById('span-montan').innerText = val;
+    // Ti kalkil senp: chak 40$ ede yon fanmi
+    let fanmi = Math.floor(val / 40) || 0;
+    document.getElementById('p-enpak').innerHTML = `💛 Un don de ${val} $ permet de soutenir l'éducation et l'autonomie de ${fanmi} familles.`;
+});
+
+// 3. Lojik Tranzisyon (Pouse Step 1, rale Step 2)
+function montrePeman() {
+    const s1 = document.getElementById('step-1');
+    const s2 = document.getElementById('step-2');
+    const montan = document.getElementById('input-lajan').value || 100;
+    const tip = document.querySelector('.tab.active').innerText;
+
+    // Prepare dezyèm pati a
+    document.getElementById('resime-tèks').innerText = `${montan}$ US / ${tip}`;
+    document.getElementById('btn-final').innerText = `DONNER ${montan} $`;
+
+    // Animasyon switch
+    s1.style.opacity = "0";
+    s1.style.transform = "translateX(-20px)"; // Ti glisad sou kote
+    
+    setTimeout(() => {
+        s1.style.pointerEvents = "none";
+        s2.style.opacity = "1";
+        s2.style.pointerEvents = "auto";
+        s2.style.transform = "translateY(0)";
+    }, 400);
+}
+
+// 4. Lojik pou tounen dèyè (Modifier)
+function tounenDeye() {
+    const s1 = document.getElementById('step-1');
+    const s2 = document.getElementById('step-2');
+
+    s2.style.opacity = "0";
+    s2.style.pointerEvents = "none";
+    
+    setTimeout(() => {
+        s1.style.opacity = "1";
+        s1.style.transform = "translateX(0)";
+        s1.style.pointerEvents = "auto";
+    }, 400);
+}
+</script>
+</body>
+</html>
