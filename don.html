@@ -319,17 +319,23 @@
         
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
             
-            <div class="pay-opt" style="border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+            <div class="pay-opt" onclick="chwaziBank(this, 'CARD')" style="position: relative; border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+                <div class="check-mark" style="display: none; position: absolute; top: -8px; right: -8px; background: #e67e22; color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; justify-content: center; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✔</div>
+                
                 <img src="assets/img/visa.jpg" alt="Card" style="width: 45px; height: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; object-fit: contain;">
                 <span style="font-size: 0.7rem; font-weight: 800; display: block; color: #555;">CARD</span>
             </div>
 
-            <div class="pay-opt" style="border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+            <div class="pay-opt" onclick="chwaziBank(this, 'PAYPAL')" style="position: relative; border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+                <div class="check-mark" style="display: none; position: absolute; top: -8px; right: -8px; background: #e67e22; color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; justify-content: center; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✔</div>
+                
                 <img src="assets/img/peypal.jpg" alt="PayPal" style="width: 45px; height: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; object-fit: contain;">
                 <span style="font-size: 0.7rem; font-weight: 800; display: block; color: #555;">PAYPAL</span>
             </div>
 
-            <div class="pay-opt" style="border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+            <div class="pay-opt" onclick="chwaziBank(this, 'MONCASH')" style="position: relative; border: 1.5px solid #eee; padding: 18px 5px; border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: 0.3s;">
+                <div class="check-mark" style="display: none; position: absolute; top: -8px; right: -8px; background: #e67e22; color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; justify-content: center; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✔</div>
+                
                 <img src="assets/img/moncash.jpg" alt="MonCash" style="width: 45px; height: auto; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; object-fit: contain;">
                 <span style="font-size: 0.7rem; font-weight: 800; display: block; color: #555;">MONCASH</span>
             </div>
@@ -413,31 +419,39 @@ function switchTab(el) {
 // 2. Lojik kalkil an tan reyèl pou tèks enpak la
 document.getElementById('input-lajan').addEventListener('input', function() {
     let val = this.value || 0;
-    document.getElementById('span-montan').innerText = val;
-    // Ti kalkil senp: chak 40$ ede yon fanmi
+    // Nou asire nou rale span nan pou chif la ka chanje
+    const span = document.getElementById('span-montan');
+    if(span) span.innerText = val;
+    
     let fanmi = Math.floor(val / 40) || 0;
-    document.getElementById('p-enpak').innerHTML = `💛 Un don de ${val} $ permet de soutenir l'éducation et l'autonomie de ${fanmi} familles.`;
+    const p = document.getElementById('p-enpak');
+    if(p) {
+        p.innerHTML = `💛 Un don de ${val} $ permet de soutenir l'éducation et l'autonomie de ${fanmi} familles.`;
+    }
 });
 
-// 3. Lojik Tranzisyon (Pouse Step 1, rale Step 2)
+// 3. Lojik Tranzisyon (KORIIJE SÈLMAN SA K TE BLOKE A)
 function montrePeman() {
     const s1 = document.getElementById('step-1');
     const s2 = document.getElementById('step-2');
-    const montan = document.getElementById('input-lajan').value || 100;
+    
+    // Nou pran valè a san erè nan varyab la
+    const montanVal = document.getElementById('input-lajan').value || 100;
     const tip = document.querySelector('.tab.active').innerText;
 
     // Prepare dezyèm pati a
-    document.getElementById('resime-tèks').innerText = `${montan}$ US / ${tip}`;
-    document.getElementById('btn-final').innerText = `DONNER ${montan} $`;
+    document.getElementById('resime-tèks').innerText = `${montanVal}$ US / ${tip}`;
+    document.getElementById('btn-final').innerText = `DONNER ${montanVal} $`;
 
     // Animasyon switch
     s1.style.opacity = "0";
-    s1.style.transform = "translateX(-20px)"; // Ti glisad sou kote
+    s1.style.transform = "translateX(-20px)";
+    s1.style.pointerEvents = "none";
     
+    // DEBLOQUE STEP 2 (Sa a enpòtan pou l ka parèt)
     setTimeout(() => {
-        s1.style.pointerEvents = "none";
         s2.style.opacity = "1";
-        s2.style.pointerEvents = "auto";
+        s2.style.pointerEvents = "auto"; // Sa ap pèmèt ou klike sou bank yo
         s2.style.transform = "translateY(0)";
     }, 400);
 }
@@ -455,6 +469,25 @@ function tounenDeye() {
         s1.style.transform = "translateX(0)";
         s1.style.pointerEvents = "auto";
     }, 400);
+}
+
+// 5. Seleksyon Bank
+function chwaziBank(eleman, nonBank) {
+    document.querySelectorAll('.pay-opt').forEach(opt => {
+        opt.style.borderColor = "#eee";
+        opt.style.background = "#fff";
+        const check = opt.querySelector('.check-mark');
+        if(check) check.style.display = "none";
+    });
+
+    eleman.style.borderColor = "#e67e22";
+    eleman.style.background = "#fffcf5";
+    const currentCheck = eleman.querySelector('.check-mark');
+    if(currentCheck) currentCheck.style.display = "flex";
+
+    // Update bouton an ak montan aktyèl la
+    const m = document.getElementById('input-lajan').value || 100;
+    document.getElementById('btn-final').innerText = `DONNER ${m} $ AVEC ${nonBank}`;
 }
 </script>
 </body>
