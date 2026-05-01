@@ -1774,6 +1774,7 @@ section,
     background-color: #F7F1D7;
     padding: 50px 20px;
     text-align: center;
+    padding: 80px 20px;
 }
 
 /* Mete foto yo sou menm liy ak ti espas */
@@ -1813,4 +1814,43 @@ section,
     font-weight: bold;
     border-radius: 5px;
     font-size: 14px;
+}
+
+
+
+
+/* --- Ranje gwo ekran sèlman san gate mobil --- */
+@media (min-width: 992px) {
+    .spring-section {
+        /* Sa ap pouse tout blòk la desann pou l pa anba meni an */
+        padding-top: 130px !important; 
+        padding-bottom: 50px;
+    }
+
+    .photo-container {
+        /* Bay foto yo plis espas sou gwo ekran */
+        gap: 30px; 
+        margin-bottom: 50px;
+    }
+
+    .img-tilt {
+        /* Foto yo bezwen pi gwo sou laptop pou yo byen parèt */
+        width: 220px; 
+        height: 300px;
+    }
+
+    .center {
+        /* Foto mitan an dwe pi gwo toujou */
+        width: 250px !important; 
+        height: 340px !important;
+    }
+
+    .spring-text h2 {
+        font-size: 40px; /* Tit la ap parèt pi bèl sou laptop */
+    }
+
+    .spring-text p {
+        font-size: 18px;
+        max-width: 700px; /* Tèks la p ap parèt twò kwense */
+    }
 }
