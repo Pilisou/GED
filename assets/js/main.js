@@ -164,101 +164,49 @@
 })();
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('donation-form');
-    const emailInput = document.getElementById('user-email');
-    const phoneInput = document.getElementById('user-phone');
-    const amountBtns = document.querySelectorAll('.amount-btn');
-    const customInput = document.getElementById('custom-amount');
-    const termsCheck = document.getElementById('terms-check');
-    const termsLabel = document.querySelector('.form-check-label');
 
-    // --- FONKSYON VALIDASYON ---
-    function validateEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,3}$/.test(email);
+
+
+
+
+
+const words = ["GED", "GONÂVE", "ESPOIR DE", "DEMAIN"];
+let i = 0;
+let j = 0;
+let isDeleting = false;
+let speed = 150;
+
+function typeLogo() {
+    const typewriter = document.getElementById("typewriter-logo");
+    const currentWord = words[i];
+
+    // DINAMIK: Chanje style la selon mo a
+    if (currentWord === "GED") {
+        typewriter.className = "sitename style-ged";
+    } else {
+        typewriter.className = "sitename style-sub";
     }
 
-    // --- 1. DJOUGAN NAN BOUTON YO ---
-    amountBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            amountBtns.forEach(b => b.classList.remove('active', 'btn-primary'));
-            btn.classList.add('active', 'btn-primary');
-            customInput.value = ''; 
-            customInput.classList.remove('is-invalid', 'is-valid');
-        });
-    });
+    if (isDeleting) {
+        typewriter.textContent = currentWord.substring(0, j - 1);
+        j--;
+        speed = 70;
+    } else {
+        typewriter.textContent = currentWord.substring(0, j + 1);
+        j++;
+        speed = 150;
+    }
 
-    // --- 2. VALIDASYON AN TAN REYÈL (POU L KA DOUS) ---
-    
-    // Pou Imèl
-    emailInput.addEventListener('input', function() {
-        if (validateEmail(this.value)) {
-            this.classList.replace('is-invalid', 'is-valid');
-            this.style.borderColor = "#28a745"; // Vèt
-        } else {
-            this.style.borderColor = "#dc3545"; // Wouj
-        }
-    });
+    if (!isDeleting && j === currentWord.length) {
+        isDeleting = true;
+        speed = 2500; // Poze pou yo li GED oswa rès yo
+    } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        speed = 400;
+    }
 
-    // Pou Telefòn
-    phoneInput.addEventListener('input', function() {
-        if (this.value.trim().length >= 8) {
-            this.classList.replace('is-invalid', 'is-valid');
-            this.style.borderColor = "#28a745";
-        } else {
-            this.style.borderColor = "#dc3545";
-        }
-    });
+    setTimeout(typeLogo, speed);
+}
 
-    // --- 3. BOUTON KONTINYE (SOUKE TOUT SA K MANKE) ---
-    window.validasyonGed = function() {
-        let genErè = false;
-        const activeBtn = document.querySelector('.amount-btn.active');
-        const hasAmount = activeBtn || (customInput.value.trim() !== "" && parseFloat(customInput.value) > 0);
-
-        // Netwaye shake yo
-        [emailInput, phoneInput, customInput, termsLabel].forEach(el => el.classList.remove('shake'));
-
-        // Chèk Email
-        if (!validateEmail(emailInput.value)) {
-            emailInput.classList.add('is-invalid', 'shake');
-            genErè = true;
-        }
-
-        // Chèk Telefòn
-        if (phoneInput.value.trim().length < 8) {
-            phoneInput.classList.add('is-invalid', 'shake');
-            genErè = true;
-        }
-
-        // Chèk Montan
-        if (!hasAmount) {
-            customInput.classList.add('is-invalid', 'shake');
-            genErè = true;
-        }
-
-        // Chèk Kondisyon
-        if (!termsCheck.checked) {
-            termsLabel.classList.add('shake');
-            termsLabel.style.color = "#dc3545"; // Mete tèks la wouj
-            genErè = true;
-        }
-
-        if (genErè) {
-            if(window.showGedMessage) showGedMessage("Tanpri ranpli tout bwat ki wouj yo!");
-            return;
-        }
-
-        // --- SI TOUT BAGAY BON, NOU SERE DONE YO ---
-        let montantFinal = activeBtn ? activeBtn.innerText.replace('$', '').trim() : customInput.value;
-        const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-
-        if (paymentMethod === 'visa') {
-            localStorage.setItem('ged_email', emailInput.value);
-            localStorage.setItem('ged_amount', montantFinal);
-            window.location.href = "kredikad.html"; 
-        } else {
-            window.location.href = "paj-peman-" + paymentMethod + ".html";
-        }
-    };
-});
+document.addEventListener("DOMContentLoaded", typeLogo);
