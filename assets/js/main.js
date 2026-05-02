@@ -210,3 +210,42 @@ function typeLogo() {
 }
 
 document.addEventListener("DOMContentLoaded", typeLogo);
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.counter');
+    const statsSection = document.querySelector('.stats-section');
+    let hasAnimated = false; // Pou anpeche l rekòmanse nan bouk
+
+    const startCounting = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 segonn pou yo tout fini ansanm
+            const increment = target / (duration / 16); // 16ms se vitès ekran an (60fps)
+
+            const updateCount = () => {
+                const count = +counter.innerText;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 16);
+                } else {
+                    counter.innerText = target; // Asire l kanpe egzakteman sou valè final la
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Espyon k ap gade si w rive sou seksyon an
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+            startCounting();
+            hasAnimated = true; // Li fè l yon sèl fwa epi l kanpe
+        }
+    }, { threshold: 0.5 }); // Deklanche lè 50% seksyon an parèt
+
+    observer.observe(statsSection);
+});
