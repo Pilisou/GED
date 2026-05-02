@@ -2000,33 +2000,36 @@ section,
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* Espas ant liy yo ak bouton an */
-    margin-top: 25px;
+    gap: 20px; /* Espas ant flèch yo ak bouton an */
+    margin-top: 30px;
 }
 
-.scroll-vèt {
-    width: 3px;
-    height: 35px;
-    background-color: #359135; /* Vèt GED la */
-    border-radius: 5px;
-    /* Animasyon "Vibration" */
-    animation: bounceScroll 1.5s infinite ease-in-out;
+.scroll-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.4s ease;
 }
 
-/* Nou fè dezyèm liy lan kòmanse yon ti jan anreta pou l parèt pi "mou" */
-.scroll-vèt:last-child {
-    animation-delay: 0.3s;
+.scroll-side span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #359135;
+    border-right: 2px solid #359135;
+    transform: rotate(45deg);
+    margin: -4px 0;
+    animation: scroll-slide 2s infinite;
 }
 
-@keyframes bounceScroll {
-    0%, 100% {
-        transform: scaleY(1);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scaleY(1.4); /* Li vin pi long */
-        opacity: 1; /* Li vin pi klere */
-    }
+/* Delè pou efè cascade a */
+.scroll-side span:nth-child(2) { animation-delay: -0.2s; }
+.scroll-side span:nth-child(3) { animation-delay: -0.4s; }
+
+@keyframes scroll-slide {
+    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
 }
 
-
+/* Sou gwo ekran, si w vle yo parèt pi piti oswa disparèt, wa regle sa nan media query */
