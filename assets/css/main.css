@@ -1842,10 +1842,10 @@ section,
 
 @media (max-width: 768px) {
     .spring-section {
-        padding-top: 70px; /* Rale l moute pi wo sou mobil */
+        padding-top: 50px; /* Rale l moute pi wo sou mobil */
         min-height: 100vh;
         /* space-between ap pouse foto moute epi tèks desann pou ranpli ekran an */
-        justify-content: space-between; 
+        justify-content: flex-start; 
         padding-bottom: 50px;
     }
     
