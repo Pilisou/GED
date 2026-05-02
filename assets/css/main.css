@@ -533,6 +533,39 @@ h6 {
   }
 }
 
+
+
+
+/* Style pou GED (Lè l parèt) */
+.style-ged {
+    font-family: 'Arial', sans-serif; /* Font solid ou a */
+    font-weight: 900;
+    text-decoration: underline #359135 3px; /* Ti rale vèt anba l la */
+    text-underline-offset: 5px;
+    font-style: normal;
+    color: #ffffff;
+    transition: all 0.3s ease;
+     font-size: 25px !important;
+}
+
+/* Style pou lòt mo yo (Gonâve, Espoir de, Demain) */
+.style-sub {
+    font-family: 'Georgia', serif; /* Yon font pi senp, pi fen */
+    font-style: italic;
+    font-weight: 300;
+    text-decoration: none; /* Pa gen rale anba lòt yo */
+    color: #ffffff;
+    opacity: 0.9;
+    font-size: 18px !important;
+}
+
+.cursor {
+    font-size: 22px;
+    color: #359135;
+    font-weight: 100;
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+}
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
