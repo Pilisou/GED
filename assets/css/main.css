@@ -1842,18 +1842,29 @@ section,
 
 @media (max-width: 768px) {
     .spring-section {
-        padding-top: 50px; /* Rale l moute pi wo sou mobil */
+        /* Nou fòse l kòmanse anlè nèt */
+        justify-content: flex-start !important; 
+        
+        /* Padding-top sa a se sèl sa k ap kontwole distans ak Menu a */
+        padding-top: 60px !important; 
+        
         min-height: 100vh;
-        /* space-between ap pouse foto moute epi tèks desann pou ranpli ekran an */
-        justify-content: flex-start; 
+        display: flex;
+        flex-direction: column;
         padding-bottom: 50px;
     }
     
     .photo-container {
-        /* Retire scale(0.9) la pou yo pa parèt piti */
-        transform: scale(1); 
+        /* Nou moute foto yo pi wo toujou */
+        margin-top: 10px !important; 
+        margin-bottom: 20px !important;
+        transform: scale(1.1); /* Nou ba yo yon ti fòs pou yo parèt pi gwo */
         gap: 8px;
-        margin-top: 10px;
+    }
+
+    .spring-text {
+        /* Nou asire tèks la swiv foto yo san li pa kite twòp vid */
+        margin-top: 0 !important;
     }
 }
 
