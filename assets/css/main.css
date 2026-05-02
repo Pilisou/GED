@@ -1770,70 +1770,91 @@ section,
 # Saki anba Hero a.
 --------------------------------------------------------------*/
 /* Stil jeneral pou seksyon an */
-/* Stil Hero pou tout ekran an nèt */
+/* Stil jeneral pou seksyon an */
+/* Stil jeneral pou seksyon an */
 .spring-section {
     background-color: #F7F1D7;
     background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232d3e33' fill-opacity='0.05'%3E%3C!-- Ti Liv --%3E%3Cpath d='M20 30h15v10H20zM22 32h11v2H22z'/%3E%3C!-- Ti Lanp --%3E%3Ccircle cx='60' cy='35' r='4'/%3E%3Cpath d='M58 39h4v2h-4z'/%3E%3C!-- Ti Plant --%3E%3Cpath d='M95 30c-2 0-4 2-4 4s2 4 4 4 4-2 4-4-2-4-4-4zm0 8v4'/%3E%3C/g%3E%3C/svg%3E");
     
-    /* SEKRÈ A SE LA: 100vh vle di 100% wotè ekran an */
-    height: 100vh; 
-    
-    /* Sa ap santre tout bagay nan mitan mèt la nèt */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* Chanje de center a flex-start pou rale tout bagay moute */
+    justify-content: flex-start; 
     align-items: center;
     
-    /* Nou retire padding 97px la pou l pa pouse kontni an twòp */
-    padding: 0 20px; 
+    /* Padding-top la dwe egzakteman wotè meni ou a (pa egzanp 80px) */
+    padding: 80px 20px 40px 20px; 
     text-align: center;
     box-sizing: border-box;
 }
 
-/* Pou mobil, si w vle l toujou gwo, kenbe 100vh oswa mete l 90vh */
-@media (max-width: 768px) {
-    .spring-section {
-        height: 100vh;
-        background-size: 80px 80px;
-    }
-}
-/* Mete foto yo sou menm liy ak ti espas */
+/* Mete foto yo sou menm liy */
 .photo-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 15px; /* Ogmante espas la yon ti kras */
+    margin-top: 20px; /* Ti espas anlè foto yo */
+    margin-bottom: 40px;
+    width: 100%;
 }
 
-/* Stil imaj yo: fòm ak lonbraj */
+/* Stil imaj yo: Nou agrandi yo la a */
 .img-tilt {
-    width: 100px; 
-    height: 140px;
+    width: 110px; /* Te 100px anvan */
+    height: 155px; /* Te 140px anvan */
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     transition: 0.3s;
 }
 
-/* Efè panche yo (Kout ak kout!) */
+/* Efè panche yo */
 .left { transform: rotate(-8deg); }
 .right { transform: rotate(8deg); }
-.center { width: 115px; height: 160px; z-index: 2; margin-bottom: 10px; }
-
-/* Tèks ak Bouton */
-.spring-text h2 { color: #2D3E33; font-size: 22px; margin-bottom: 15px; }
-.spring-text p { color: #555; font-size: 14px; max-width: 450px; margin: 0 auto 25px; }
+.center { 
+    width: 130px !important; /* Te 115px anvan */
+    height: 180px !important; /* Te 160px anvan */
+    z-index: 2; 
+    margin-bottom: 10px; 
+}
 
 .btn-spring {
+
     display: inline-block;
+
     background: #359135;
+
     color: #2D3E33;
+
     padding: 12px 30px;
+
     text-decoration: none;
+
     font-weight: bold;
+
     border-radius: 5px;
+
     font-size: 14px;
+
+}
+
+@media (max-width: 768px) {
+    .spring-section {
+        padding-top: 70px; /* Rale l moute pi wo sou mobil */
+        min-height: 100vh;
+        /* space-between ap pouse foto moute epi tèks desann pou ranpli ekran an */
+        justify-content: space-between; 
+        padding-bottom: 50px;
+    }
+    
+    .photo-container {
+        /* Retire scale(0.9) la pou yo pa parèt piti */
+        transform: scale(1); 
+        gap: 8px;
+        margin-top: 10px;
+    }
 }
 
 
