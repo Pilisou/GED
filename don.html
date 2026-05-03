@@ -615,53 +615,59 @@
     </div>
 </footer>
 <script>
-// 1. Chanje tab (Mensuel/Once)
+// 1. Chanje Tab (Mensuel / Une seule fois)
 function switchTab(el) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
+    updateEnpak(); // Nou mete l ajou lè moun nan klike tab la tou
 }
 
-// 2. Lojik kalkil an tan reyèl pou tèks enpak la
-document.getElementById('input-lajan').addEventListener('input', function() {
-    let val = this.value || 0;
-    // Nou asire nou rale span nan pou chif la ka chanje
+// 2. FONKSYON KI MIJOU TOUT CHIF YO (Sa a se kè a)
+function updateEnpak() {
+    let val = document.getElementById('input-lajan').value || 0;
+    
+    // Update span nan tit la
     const span = document.getElementById('span-montan');
     if(span) span.innerText = val;
     
+    // Kalkil fanmi yo (40$ = 1 fanmi)
     let fanmi = Math.floor(val / 40) || 0;
     const p = document.getElementById('p-enpak');
+    
+    // Tèks sa a ap chanje menm kote a chak fwa ou tape yon chif
     if(p) {
-        p.innerHTML = `💛 Un don de ${val} $ permet de soutenir l'éducation et l'autonomie de ${fanmi} familles.`;
+        p.innerHTML = `💛 Un don de <b>${val} $</b> permet de soutenir l'éducation et l'autonomie de <b>${fanmi}</b> familles.`;
     }
-});
+    
+    // Si nou nan Step 2, n ap update tèks rezime a tou
+    const tip = document.querySelector('.tab.active').innerText;
+    const resime = document.getElementById('resime-tèks');
+    if(resime) resime.innerText = `${val}$ US / ${tip}`;
+}
 
-// 3. Lojik Tranzisyon (KORIIJE SÈLMAN SA K TE BLOKE A)
+// Koute sa k ap pase nan input la pou chanje chif yo "Live"
+document.getElementById('input-lajan').addEventListener('input', updateEnpak);
+
+// 3. Tranzisyon Step 1 pou ale Step 2
+let metodPeman = ""; 
+
 function montrePeman() {
     const s1 = document.getElementById('step-1');
     const s2 = document.getElementById('step-2');
     
-    // Nou pran valè a san erè nan varyab la
-    const montanVal = document.getElementById('input-lajan').value || 100;
-    const tip = document.querySelector('.tab.active').innerText;
+    updateEnpak(); // Asire tout chif yo kòrèk anvan nou ale nan etap peman
 
-    // Prepare dezyèm pati a
-    document.getElementById('resime-tèks').innerText = `${montanVal}$ US / ${tip}`;
-    document.getElementById('btn-final').innerText = `DONNER ${montanVal} $`;
-
-    // Animasyon switch
     s1.style.opacity = "0";
     s1.style.transform = "translateX(-20px)";
     s1.style.pointerEvents = "none";
     
-    // DEBLOQUE STEP 2 (Sa a enpòtan pou l ka parèt)
     setTimeout(() => {
         s2.style.opacity = "1";
-        s2.style.pointerEvents = "auto"; // Sa ap pèmèt ou klike sou bank yo
+        s2.style.pointerEvents = "auto";
         s2.style.transform = "translateY(0)";
     }, 400);
 }
 
-// 4. Lojik pou tounen dèyè (Modifier)
 function tounenDeye() {
     const s1 = document.getElementById('step-1');
     const s2 = document.getElementById('step-2');
@@ -676,8 +682,10 @@ function tounenDeye() {
     }, 400);
 }
 
-// 5. Seleksyon Bank
+// 4. Seleksyon Bank (CARD = WISE, PAYPAL, MONCASH)
 function chwaziBank(eleman, nonBank) {
+    metodPeman = nonBank;
+    
     document.querySelectorAll('.pay-opt').forEach(opt => {
         opt.style.borderColor = "#eee";
         opt.style.background = "#fff";
@@ -690,10 +698,28 @@ function chwaziBank(eleman, nonBank) {
     const currentCheck = eleman.querySelector('.check-mark');
     if(currentCheck) currentCheck.style.display = "flex";
 
-    // Update bouton an ak montan aktyèl la
     const m = document.getElementById('input-lajan').value || 100;
-    document.getElementById('btn-final').innerText = `DONNER ${m} $ AVEC ${nonBank}`;
+    // Tèks bouton an an franse
+    document.getElementById('btn-final').innerText = `FAIRE UN DON DE ${m} $ VIA ${nonBank}`;
 }
+
+// 5. BOUTON FINAL LA (Ekzekisyon Peman)
+document.getElementById('btn-final').addEventListener('click', function() {
+    const montan = document.getElementById('input-lajan').value || 100;
+    
+    if (metodPeman === "CARD") {
+        // LYEN WISE PA W LA (Lajan ap tonbe kounye a)
+        window.location.href = "https://wis"; 
+        
+    } else if (metodPeman === "PAYPAL") {
+        // LYEN PAYPAL ALFRED LA
+       window.location.href = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=themastergandhialfred@gmail.com&item_name=Donation%20GED&currency_code=USD&no_shipping=1&ext_non_paypal=1&solution_type=Sole&amount=" + document.getElementById('input-lajan').value;
+    } else if (metodPeman === "MONCASH") {
+        alert("Pour MonCash : Veuillez effectuer le transfert au numéro de GED : +509 XXXX-XXXX. Merci !");
+    } else {
+        alert("Veuillez choisir un mode de paiement.");
+    }
+});
 </script>
 </body>
 </html>
