@@ -22,30 +22,46 @@
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
 
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  function mobileNavToogle() {
+const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+
+function mobileNavToogle() {
+  if (document.querySelector('body')) {
     document.querySelector('body').classList.toggle('mobile-nav-active');
+  }
+  
+  // Nou tcheke si bouton an egziste anvan nou chanje klas li
+  if (mobileNavToggleBtn) {
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
+}
+
+// Sèlman si bouton an la n ap mete koute a (EventListener)
+if (mobileNavToggleBtn) {
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+}
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+/**
+* Hide mobile nav on same-page/hash links
+*/
+// Nou mete tout kòd sa a anndan yon fonksyon pou nou ka rele l 
+// sèlman lè nou sèten meni an fin chaje nan paj la
+function initMobileNavLinks() {
+  const navLinks = document.querySelectorAll('#navmenu a');
+  if (navLinks.length > 0) {
+    navLinks.forEach(navmenu => {
+      navmenu.addEventListener('click', () => {
+        if (document.querySelector('.mobile-nav-active')) {
+          mobileNavToogle();
+        }
+      });
     });
+  }
+}
 
-  });
-
+// Nou lanse l yon premye fwa
+initMobileNavLinks();
   /**
    * Toggle mobile nav dropdowns
    */
@@ -247,5 +263,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { threshold: 0.5 }); // Deklanche lè 50% seksyon an parèt
 
-    observer.observe(statsSection);
+    // Nou kreye yon varyab pou sa n ap chèche a (egzanp: yon seksyon animasyon)
+const elementToObserve = document.querySelector('.seksyon-sa-a'); // Ranplase '.seksyon-sa-a' ak sa ki te nan kòd ou a
+
+if (elementToObserve) {
+  const observer = new IntersectionObserver((entries) => {
+    // Kòd animasyon an ale isit la
+  });
+  observer.observe(elementToObserve);
+}
 });
