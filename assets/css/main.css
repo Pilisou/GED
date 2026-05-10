@@ -2079,7 +2079,9 @@ section,
 
 
 
-
+/*--------------------------------------------------------------
+# touris e atizana
+--------------------------------------------------------------*/
 
 #news-grid-ged {
     margin-top: 100px !important;
@@ -2196,6 +2198,119 @@ section,
     
 }
 
+.ged-news-postlude {
+    padding: 40px 0 80px 0;
+}
+
+.ged-footer-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; /* Pou kache sèk la k ap debòde */
+    border-left: 5px solid #2ecc71;
+}
+
+.ged-footer-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.ged-footer-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Sèk la ki nan fon an (Chema CSS) */
+.ged-circle-shape {
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(46, 204, 113, 0.05);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.ged-showcase-header {
+    padding: 8px 0 40px 0;
+    position: relative;
+    background: #fff;
+}
+
+/* Ti etikèt GED ki anlè a */
+.ged-badge-org {
+    font-size: 11px;
+    font-weight: 900;
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ged-badge-org::after {
+    content: "";
+    height: 1px;
+    width: 50px;
+    background: #3498db;
+    display: inline-block;
+}
+
+/* Gwo Tit la */
+.ged-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.ged-accent {
+    color: #27ae60; /* Vèt devlopman an */
+    position: relative;
+}
+
+/* Ti paragraf eksplikasyon an */
+.ged-subtitle {
+    font-size: 16px;
+    color: #555;
+    max-width: 650px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    border-left: 3px solid #eee;
+    padding-left: 20px;
+}
+
+/* Chema CSS: Separatè a */
+.ged-separator-modern {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, #3498db, #27ae60, transparent);
+    position: relative;
+    margin-top: 30px;
+}
+
+.ged-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #111;
+    border-radius: 50%;
+    top: -4px;
+    left: 0;
+}
 
 
 /*--------------------------------------------------------------
@@ -2339,4 +2454,3 @@ section,
     .ged-custom-grid img { height: 150px; }
     .stat-box { margin-bottom: 15px; }
 }
-
