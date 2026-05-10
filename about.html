@@ -471,31 +471,25 @@
       const data = await response.text();
       document.getElementById('header').innerHTML = data;
 
-      // 1. Relanse typewriter a
       if (typeof typeLogo === "function") typeLogo();
 
-      // 2. LOGIK POU DETEKTE PAJ KI LOUVRI A (Active Link)
       const currentPath = window.location.pathname.split("/").pop() || "index.html";
       
       document.querySelectorAll('.navmenu a').forEach(link => {
         const linkHref = link.getAttribute('href');
-        
-        // Retire tout klas active ki te la anvan
         link.classList.remove('active');
 
-        // Si nou sou paj accueil, nou gade si se link #hero a
         if (currentPath === "index.html" || currentPath === "") {
           if (linkHref === "index.html#hero" || linkHref === "#hero") {
             link.classList.add('active');
           }
         } 
-        // Sinon, nou konpare non paj la ak href link la
         else if (linkHref.includes(currentPath)) {
           link.classList.add('active');
         }
       });
 
-      // 3. RE-INITIALIZE BOUTON MOBIL LA
+      // 3. BOUTON MOBIL LA
       const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
       if (mobileNavToggleBtn) {
         mobileNavToggleBtn.addEventListener('click', function(e) {
@@ -505,13 +499,28 @@
         });
       }
 
-      // 4. Jere dropdown yo sou mobil
+      // 4. Dropdown mobil
       document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
         navmenu.addEventListener('click', function(e) {
           e.preventDefault();
           this.parentNode.classList.toggle('active');
           this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
           e.stopImmediatePropagation();
+        });
+      });
+
+      // --- PATI 5: FÈMEN MENI A LÈ YO KLIKE SOU YON LYEN (Solution an) ---
+      document.querySelectorAll('.navmenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (document.body.classList.contains('mobile-nav-active')) {
+            document.body.classList.remove('mobile-nav-active');
+            
+            // Remete ikon list la (twa ti bar yo)
+            if (mobileNavToggleBtn) {
+              mobileNavToggleBtn.classList.add('bi-list');
+              mobileNavToggleBtn.classList.remove('bi-x');
+            }
+          }
         });
       });
 
@@ -522,5 +531,4 @@
 
   document.addEventListener('DOMContentLoaded', loadMenu);
 </script>
-
 </body>
