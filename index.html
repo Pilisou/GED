@@ -44,37 +44,8 @@
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename" id="typewriter-logo"></h1><span class="cursor"></span>
-      </a>
-
-     <nav id="navmenu" class="navmenu">
-  <ul>
-    <li><a href="#hero" class="active">Accueil</a></li>
-    <li><a href="#about">Qui sommes-nous ?</a></li>
-    <li class="dropdown"><a href="#services"><span>Nos Piliers</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-      <ul>
-        <li><a href="#">Agriculture</a></li>
-        <li><a href="#">Culture & Patrimoine</a></li>
-        <li><a href="#">Action Sociale</a></li>
-        <li><a href="#">Aide Humanitaire</a></li>
-      </ul>
-    </li>
-    <li><a href="#education">Éducation</a></li>
-    <li><a href="#portfolio">Notre Impact</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-</nav>
-
-<a class="btn-getstarted" href="don.html">Faire un Don</a>
-    </div>
-  </header>
-
+   <!-- JS la pral mete meni an la a -->
+</header>
 
    
     <!-- la bezwen yon bagay -->
@@ -100,7 +71,7 @@
         <span></span>
     </div>
 
-    <a href="#" class="btn-spring">ENRACINER L'ESPOIR</a>
+    <a href="#about" class="btn-spring">ENRACINER L'ESPOIR</a>
 
     <div class="scroll-side right" id="scroll-right">
         <span></span>
@@ -189,7 +160,7 @@
 
 <section id="featured-services" class="featured-services section">
   <div class="container section-title" data-aos="fade-up">
-    <h2>Nos Services</h2>
+    <h2>Nos Piliers</h2>
     <p>Actions concrètes pour le développement durable et le bien-être de la communauté.</p>
   </div>
 
@@ -563,26 +534,7 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="ged-member-card">
-          <div class="avatar-holder">
-            <img src="assets/img/team/team-3.jpg" alt="Jonis Alfred">
-          </div>
-          <div class="ged-member-content">
-            <h4>Louisine Edmond</h4>
-            <p class="role">Secretaire</p>
-            <p class="desc">Responsable du support administratif et opérationnel.</p>
-            <div class="ged-social">
-              <a href=""><i class="bi bi-facebook"></i></a>
-              
-              <a href="https://wa.me/509"><i class="bi bi-whatsapp"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+     
 </section>
 <!-- /Team Section -->
 
@@ -748,4 +700,64 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+
+
+ <script>
+  async function loadMenu() {
+    try {
+      const response = await fetch('menu.html');
+      const data = await response.text();
+      document.getElementById('header').innerHTML = data;
+
+      // 1. Relanse typewriter a
+      if (typeof typeLogo === "function") typeLogo();
+
+      // 2. LOGIK POU DETEKTE PAJ KI LOUVRI A (Active Link)
+      const currentPath = window.location.pathname.split("/").pop() || "index.html";
+      
+      document.querySelectorAll('.navmenu a').forEach(link => {
+        const linkHref = link.getAttribute('href');
+        
+        // Retire tout klas active ki te la anvan
+        link.classList.remove('active');
+
+        // Si nou sou paj accueil, nou gade si se link #hero a
+        if (currentPath === "index.html" || currentPath === "") {
+          if (linkHref === "index.html#hero" || linkHref === "#hero") {
+            link.classList.add('active');
+          }
+        } 
+        // Sinon, nou konpare non paj la ak href link la
+        else if (linkHref.includes(currentPath)) {
+          link.classList.add('active');
+        }
+      });
+
+      // 3. RE-INITIALIZE BOUTON MOBIL LA
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function(e) {
+          document.body.classList.toggle('mobile-nav-active');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x');
+        });
+      }
+
+      // 4. Jere dropdown yo sou mobil
+      document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+        navmenu.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.parentNode.classList.toggle('active');
+          this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+          e.stopImmediatePropagation();
+        });
+      });
+
+    } catch (error) {
+      console.error('Erè nan chajman meni an:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadMenu);
+</script>
 </body>
