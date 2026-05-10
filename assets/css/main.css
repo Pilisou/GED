@@ -2454,3 +2454,79 @@ section,
     .ged-custom-grid img { height: 150px; }
     .stat-box { margin-bottom: 15px; }
 }
+/*--------------------------------------------------------------
+# Istwa de Dieuseul.
+--------------------------------------------------------------*/
+/* --- STORY HEADER STYLE --- */
+
+
+/* Siyati a */
+.ged-signature {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #27ae60;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.ged-titre-avocat {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2a3a;
+}
+
+.ged-signature small {
+    color: #3498db;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+/* Tit istwa a */
+.ged-tale-title {
+    font-family: 'Playfair Display', serif;
+    font-size: calc(1.8rem + 1vw);
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.ged-pulse {
+    color: #27ae60;
+    text-decoration: underline wavy #3498db;
+}
+
+/* Tèks Naratif la */
+.ged-narrative {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 850px;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.ged-narrative strong {
+    color: #111;
+    border-bottom: 1px dashed #27ae60;
+}
+
+/* Ti chema icon an */
+.ged-visual-story {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ged-icon-path {
+    width: 50px;
+    height: 50px;
+    background: #f0fdf4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #27ae60;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.1);
+}
