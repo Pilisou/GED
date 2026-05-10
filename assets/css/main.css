@@ -2076,3 +2076,267 @@ section,
     font-style: italic;
     font-family: 'Georgia', serif;
 }
+
+
+
+
+
+#news-grid-ged {
+    margin-top: 100px !important;
+    position: relative;
+    z-index: 1;
+}
+
+#news-grid-ged .category-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Koulè separe pou kategori yo */
+#news-grid-ged .color-tourisme { color: #359135; }
+#news-grid-ged .color-artisanat { color: #d97706; } /* Yon ti koulè zoranj/or pou atizana */
+
+#news-grid-ged .news-headline {
+    font-size: 20px; /* Pi gwo sou gwo ekran jan w te mande l la */
+    font-weight: 800;
+    color: #111 !important;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    padding-right: 15px;
+    font-family: 'Playfair Display', serif; /* Si w gen font sa, l ap parèt plis jounal */
+}
+
+#news-grid-ged .news-desc {
+    font-size: 14.5px;
+    color: #555;
+    line-height: 1.5;
+    padding-right: 10px;
+    margin-bottom: 0;
+}
+
+#news-grid-ged .img-side {
+    width: 125px; /* Yon ti kras pi gwo pou gwo ekran */
+    height: 90px;
+    object-fit: cover;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+#news-grid-ged .news-item {
+    padding-bottom: 25px;
+}
+
+#news-grid-ged .border-light-subtle {
+    border-color: #ebebeb !important;
+}
+
+/* Ajisteman pou ti ekran */
+@media (max-width: 991px) {
+    #news-grid-ged .news-headline { font-size: 18px; }
+    #news-grid-ged .border-start, #news-grid-ged .border-end { border: none !important; }
+}
+
+@media (max-width: 576px) {
+    #news-grid-ged .d-flex { flex-direction: column-reverse; }
+    #news-grid-ged .img-side { width: 100%; height: 180px; margin-bottom: 15px; }
+    #news-grid-ged .news-headline { font-size: 19px; }
+}
+
+/* Reglaj espesyal pou gwo ekran sèlman */
+@media (min-width: 992px) {
+    /* 1. Fòse kolòn yo gen menm wotè */
+    #news-grid-ged .row {
+        display: flex !important;
+        flex-wrap: wrap;
+    }
+
+    #news-grid-ged .col-lg-4 {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    /* 2. Fòse chak atik pran tout wotè kolòn nan */
+    #news-grid-ged .news-item {
+        flex: 1 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        border-bottom: 1px solid #ebebeb; /* Sa ap kenbe liy yo dwat */
+        margin-bottom: 0 !important;
+        padding-top: 20px;
+    }
+
+    /* 3. Limite tèks la pou l pa janm depase 5 liy */
+    #news-grid-ged .news-desc {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 5 !important;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 15px !important;
+    }
+
+    /* 4. Bloque imaj la nèt pou l pa janm bouje */
+    #news-grid-ged .img-side {
+        width: 125px !important;
+        height: 90px !important;
+        min-width: 125px !important;
+        flex-shrink: 0 !important;
+    }
+    #news-grid-ged .news-desc:hover {
+    -webkit-line-clamp: unset !important; /* Sa ap montre tout tèks la lè moun pase sou li */
+    display: block !important;
+    background: #fff;
+    position: relative;
+    z-index: 10;
+}
+    
+}
+
+
+
+/*--------------------------------------------------------------
+# QUI sommes-nous!
+--------------------------------------------------------------*/
+/* Reset ak Tipografi */
+/* --- Estrikti Jeneral & Kalite Karaktè --- */
+#ged-about-premium, #about-section-top {
+    padding-top: 110px;
+    background-color: #fcfcfc;
+    font-family: 'Georgia', serif; /* Stil jounal prestij */
+    color: #1a1a1a;
+}
+
+/* --- Hero Section - Stil Editorial --- */
+.hero-header {
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 50px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.hero-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-family: 'Helvetica', sans-serif;
+}
+
+/* --- Tèks ak Paragraf --- */
+.ged-editorial-text {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.paragraph-vibrant {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* --- Sistèm Lang (Kache Anglè pa defo) --- */
+.lang-en { 
+    display: none; 
+}
+
+/* --- Griy 4 Foto --- */
+.ged-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolon */
+    grid-template-rows: repeat(2, 1fr);    /* 2 liy */
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.ged-custom-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ged-custom-grid img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Nouvo Eleman "Fleri" (Stats, Timeline, Partenaires) --- */
+
+/* Impact Counters */
+.stat-box {
+    padding: 20px;
+    border-left: 4px solid #0056b3;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+/* Timeline Style */
+.timeline-list .list-group-item {
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-color: #eee;
+    padding: 1.5rem 0;
+}
+
+.year-badge {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 900;
+    color: #0056b3;
+    font-size: 1.2rem;
+    min-width: 60px;
+    display: inline-block;
+}
+
+/* Partenaires */
+.partner-badge {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.partner-badge:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Pwen Devlopman yo */
+.point-block {
+    margin-bottom: 80px;
+}
+
+.point-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0056b3;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.point-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-family: 'Helvetica', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-header h1 { font-size: 2.2rem; }
+    .ged-custom-grid img { height: 150px; }
+    .stat-box { margin-bottom: 15px; }
+}
+
